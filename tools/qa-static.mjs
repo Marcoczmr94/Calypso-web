@@ -47,7 +47,11 @@ const assertions = [
   [/intro-active/.test(siteJs) && /setBackgroundInert/.test(siteJs), "La introducción bloquea el fondo de forma accesible"],
   [/prefers-reduced-motion/.test(css), "Existe soporte para movimiento reducido"],
   [/srcset=/.test(html) && /type=["']image\/avif/.test(html), "La galería usa srcset y AVIF"],
-  [/width=["']1176["'] height=["']1752["']/.test(html), "Las fotos declaran dimensiones"],
+  [/villa-pool-wide-1920\.webp["'] width=["']1920["'] height=["']2560["']/.test(html), "Las fotos de alta resolución declaran dimensiones"],
+  [!/assets\/images\/source\//.test(html + siteJs), "La entrega no depende de fuentes de edición"],
+  [!/optimized\/acapulco-[^"')\s,]+\.avif/.test(html + css + siteJs), "Acapulco usa WebP compatible en producción"],
+  [!/assets\/images\/(?:pool|golden|bluehour|villa-table-local|acapulco-bay-premium)\.(?:jpg|webp)/.test(html + css + siteJs), "La entrega no depende de imágenes históricas"],
+  [!/optimized\/(?:pool|golden|bluehour|villa-table-local|acapulco-bay-premium)-/.test(html + css + siteJs), "La entrega no depende de variantes históricas"],
   [fs.statSync(path.join(root, "404.html")).size < 5000, "La página 404 es ligera"]
 ];
 

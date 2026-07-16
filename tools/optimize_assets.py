@@ -23,7 +23,7 @@ def resized(source: Path, width: int) -> Image.Image:
         return image.resize((width, height), Image.Resampling.LANCZOS)
 
 
-def save_variants(source: Path, widths: tuple[int, ...]) -> None:
+def save_variants(source: Path, widths: tuple[int, ...], *, include_avif: bool = True) -> None:
     with Image.open(source) as probe:
         source_width = probe.width
     for width in sorted({min(width, source_width) for width in widths}):
@@ -36,12 +36,13 @@ def save_variants(source: Path, widths: tuple[int, ...]) -> None:
             method=6,
             optimize=True,
         )
-        image.save(
-            OPTIMIZED / f"{stem}.avif",
-            "AVIF",
-            quality=68,
-            speed=6,
-        )
+        if include_avif:
+            image.save(
+                OPTIMIZED / f"{stem}.avif",
+                "AVIF",
+                quality=68,
+                speed=6,
+            )
 
 
 def save_cover(
@@ -131,7 +132,9 @@ def main() -> None:
         "acapulco-coast.jpg",
         "acapulco-night.jpg",
     ):
-        save_variants(SOURCES / name, (640, 1024, 1600, 2400))
+        # WebP is the production format for these three sources. Some Chromium
+        # builds reject their AVIF encodes, while WebP and JPEG decode reliably.
+        save_variants(SOURCES / name, (640, 1024, 1600, 2400), include_avif=False)
 
     save_cover(
         SOURCES / "villa-pool-wide.jpg",

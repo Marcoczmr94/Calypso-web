@@ -92,10 +92,10 @@ El archivo `villa-calypso-hostinger.zip` contiene sólo los archivos que deben c
 
 ## Medios
 
-Las fotografías visibles de la villa y los videos son locales. Las variantes AVIF y WebP se regeneran con:
+Todos los videos y fotografías se sirven localmente desde el repositorio. La portada posterior a **Explorar** es una fotografía fija; el video oficial sólo aparece en la introducción. Las variantes responsivas se regeneran con:
 
 ```powershell
 python .\tools\optimize_assets.py
 ```
 
-No se usan imágenes externas de Airbnb ni recursos generados por IA para representar la propiedad.
+Las fotografías de la propiedad provienen del anuncio oficial administrado por el propietario. Las imágenes de contexto de Acapulco proceden de Pexels y se mantienen separadas de la galería de la villa. No se usan recursos generados por IA para representar habitaciones, arquitectura o vistas. Consulta [`ASSETS.md`](./ASSETS.md) para procedencia y licencias.

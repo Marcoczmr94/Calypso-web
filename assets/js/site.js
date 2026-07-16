@@ -310,22 +310,22 @@
 
   const galleryItems = [
     {
-      src: "./assets/images/source/villa-pool-wide.jpg",
+      src: "./assets/images/optimized/villa-pool-wide-1920.webp",
       alt: "Alberca infinita de Villa Calypso frente al Pacífico durante la hora dorada",
       caption: "Alberca infinita · vista al Pacífico"
     },
     {
-      src: "./assets/images/source/villa-lounge-wide.jpg",
+      src: "./assets/images/optimized/villa-lounge-wide-1920.webp",
       alt: "Sala panorámica de Villa Calypso con vista al mar",
       caption: "Sala panorámica · Villa Calypso"
     },
     {
-      src: "./assets/images/source/villa-interior-wide.jpg",
+      src: "./assets/images/optimized/villa-interior-wide-1920.webp",
       alt: "Interior de Villa Calypso abierto hacia el Pacífico",
       caption: "Interiores abiertos · Villa Calypso"
     },
     {
-      src: "./assets/images/source/villa-sunset-wide.jpg",
+      src: "./assets/images/optimized/villa-sunset-wide-1920.webp",
       alt: "Atardecer reflejado en la alberca de Villa Calypso",
       caption: "Atardecer · Villa Calypso"
     }

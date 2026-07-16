@@ -32,10 +32,12 @@ Las cuatro fuentes de alta resolución proceden del [anuncio oficial de Villa Ca
 - `assets/images/source/acapulco-bay-day.jpg` — bahía de Santa Lucía entre palmeras. Fuente: [Pexels / Miguel Sanchez](https://www.pexels.com/photo/scenic-view-of-acapulco-bay-with-palm-trees-36242990/).
 - `assets/images/source/acapulco-coast.jpg` — costa rocosa de Acapulco. Fuente: [Pexels / Eden FC](https://www.pexels.com/photo/seashore-in-acapulco-mexico-17391414/).
 - `assets/images/source/acapulco-night.jpg` — panorama nocturno de la bahía. Fuente: [Pexels / Luis Merlos Vega](https://www.pexels.com/photo/acapulco-city-mexico-panorama-at-night-17231939/).
-- `assets/images/optimized/acapulco-*.avif` y `acapulco-*.webp` — variantes responsivas de 640 a 2400 px.
+- `assets/images/optimized/acapulco-*.webp` — variantes responsivas de 640 a 2400 px utilizadas en producción, con el JPEG original como respaldo.
 
 Las fotografías de contexto se publican conforme a la licencia de uso gratuito indicada en sus páginas de Pexels. Se mantienen separadas de la galería de la propiedad para no presentarlas como espacios de Villa Calypso.
 
 ## Procedencia y límites
 
 El video, la marca y los recursos originales del proyecto provienen del paquete `villa-calypso-v7-cinematografica-github (1).zip` entregado por el propietario. No se inventaron habitaciones, arquitectura, albercas ni vistas. Los únicos archivos generados son derivados técnicos —cambio de tamaño, formato, iconos y recortes— de las fuentes documentadas arriba.
+
+La carpeta `assets/images/source/` conserva las fuentes de edición dentro del repositorio, pero el workflow de GitHub Pages la excluye del artefacto público. El sitio publicado utiliza únicamente derivados optimizados.

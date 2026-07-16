@@ -33,4 +33,4 @@ if (missing.status !== 404) failures.push({ relative: "ruta-que-no-existe", stat
 else process.stdout.write("PASS  404  Las rutas inexistentes devuelven estado 404\n");
 
 if (failures.length) process.exit(1);
-process.stdout.write(`PASS  ${checks.length} recursos de producción respondieron sin 404\n`);
+process.stdout.write(`PASS  ${checks.length} recursos del repositorio respondieron sin 404\n`);
