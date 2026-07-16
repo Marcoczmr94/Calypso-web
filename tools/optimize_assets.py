@@ -10,6 +10,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 IMAGES = ROOT / "assets" / "images"
 OPTIMIZED = IMAGES / "optimized"
+SOURCES = IMAGES / "source"
 BRAND = ROOT / "assets" / "brand"
 
 
@@ -43,6 +44,44 @@ def save_variants(source: Path, widths: tuple[int, ...]) -> None:
         )
 
 
+def save_cover(
+    source: Path,
+    stem: str,
+    size: tuple[int, int],
+    centering: tuple[float, float],
+) -> None:
+    """Build an art-directed crop for a full-bleed surface."""
+
+    with Image.open(source) as image:
+        image = ImageOps.exif_transpose(image).convert("RGB")
+        cover = ImageOps.fit(
+            image,
+            size,
+            method=Image.Resampling.LANCZOS,
+            centering=centering,
+        )
+        cover.save(
+            OPTIMIZED / f"{stem}.webp",
+            "WEBP",
+            quality=88,
+            method=6,
+            optimize=True,
+        )
+        cover.save(
+            OPTIMIZED / f"{stem}.avif",
+            "AVIF",
+            quality=72,
+            speed=6,
+        )
+        cover.save(
+            OPTIMIZED / f"{stem}.jpg",
+            "JPEG",
+            quality=90,
+            optimize=True,
+            progressive=True,
+        )
+
+
 def build_icons() -> None:
     source = BRAND / "logo-calypso.png"
     with Image.open(source) as logo:
@@ -60,7 +99,7 @@ def build_icons() -> None:
 
 
 def build_social_card() -> None:
-    source = ROOT / "assets" / "cinema" / "calypso-official-desktop.jpg"
+    source = SOURCES / "villa-pool-wide.jpg"
     with Image.open(source) as image:
         image = ImageOps.exif_transpose(image).convert("RGB")
         card = ImageOps.fit(
@@ -78,6 +117,34 @@ def main() -> None:
         save_variants(IMAGES / name, (480, 768, 1176))
     for name in ("villa-table-local.webp", "acapulco-bay-premium.webp"):
         save_variants(IMAGES / name, (768, 1440, 1920))
+
+    for name in (
+        "villa-pool-wide.jpg",
+        "villa-sunset-wide.jpg",
+        "villa-lounge-wide.jpg",
+        "villa-interior-wide.jpg",
+    ):
+        save_variants(SOURCES / name, (640, 1024, 1600, 1920))
+
+    for name in (
+        "acapulco-bay-day.jpg",
+        "acapulco-coast.jpg",
+        "acapulco-night.jpg",
+    ):
+        save_variants(SOURCES / name, (640, 1024, 1600, 2400))
+
+    save_cover(
+        SOURCES / "villa-pool-wide.jpg",
+        "villa-hero-desktop-1920",
+        (1920, 1080),
+        (0.52, 0.56),
+    )
+    save_cover(
+        SOURCES / "villa-pool-wide.jpg",
+        "villa-hero-mobile-900",
+        (900, 1200),
+        (0.5, 0.52),
+    )
     build_icons()
     build_social_card()
 
