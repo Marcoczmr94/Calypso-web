@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#061b19">
+  <title>Página no encontrada | Villa Calypso</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:#061b19;color:#fff;font-family:Arial,Helvetica,sans-serif;text-align:center}main{width:min(620px,100%)}span{color:#f0d39f;font:400 clamp(5rem,20vw,10rem)/.9 Georgia,serif}h1{margin:18px 0 12px;font:400 clamp(2.5rem,8vw,4.8rem)/1 Georgia,serif}p{margin:0 auto 28px;max-width:520px;color:rgba(255,255,255,.68);line-height:1.7}a{display:inline-flex;min-height:50px;align-items:center;justify-content:center;padding:13px 23px;border-radius:999px;background:#d9b273;color:#061b19;font-size:.78rem;font-weight:700;text-decoration:none}a:focus-visible{outline:3px solid #fff;outline-offset:4px}
+  </style>
+</head>
+<body>
+  <main>
+    <span aria-hidden="true">404</span>
+    <h1>Este horizonte no existe.</h1>
+    <p>La página que buscas cambió de lugar o ya no está disponible. Puedes volver a la experiencia principal de Villa Calypso.</p>
+    <a id="homeLink" href="./index.html">Volver a Villa Calypso</a>
+  </main>
+  <script>
+    if (location.hostname.endsWith('.github.io')) {
+      const repository = location.pathname.split('/').filter(Boolean)[0];
+      if (repository) document.getElementById('homeLink').href = `/${repository}/`;
+    }
+  </script>
+</body>
+</html>

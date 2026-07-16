@@ -1,0 +1,23 @@
+{
+  "name": "Villa Calypso Acapulco",
+  "short_name": "Villa Calypso",
+  "description": "Villa privada frente al mar en Acapulco.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#061b19",
+  "theme_color": "#061b19",
+  "icons": [
+    {
+      "src": "./assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
