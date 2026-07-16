@@ -34,10 +34,10 @@ jobs:
         run: |
           mkdir -p _site
           cp -R assets _site/assets
+          rm -rf _site/assets/cinema
           rm -rf _site/assets/images/source
           rm -f _site/assets/images/*.jpg _site/assets/images/*.webp
-          rm -f _site/assets/images/optimized/acapulco-*.avif
-          rm -f _site/assets/images/optimized/acapulco-bay-premium-*
+          rm -f _site/assets/images/optimized/acapulco-*
           rm -f _site/assets/images/optimized/bluehour-*
           rm -f _site/assets/images/optimized/golden-*
           rm -f _site/assets/images/optimized/pool-*

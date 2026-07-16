@@ -127,15 +127,18 @@ def main() -> None:
     ):
         save_variants(SOURCES / name, (640, 1024, 1600, 1920))
 
-    for name in (
-        "acapulco-bay-day.jpg",
-        "acapulco-coast.jpg",
-        "acapulco-night.jpg",
-    ):
-        # WebP is the production format for these three sources. Some Chromium
-        # builds reject their AVIF encodes, while WebP and JPEG decode reliably.
-        save_variants(SOURCES / name, (640, 1024, 1600, 2400), include_avif=False)
-
+    save_cover(
+        SOURCES / "villa-sunset-wide.jpg",
+        "villa-intro-desktop-1920",
+        (1920, 1080),
+        (0.5, 0.48),
+    )
+    save_cover(
+        SOURCES / "villa-sunset-wide.jpg",
+        "villa-intro-mobile-900",
+        (900, 1200),
+        (0.5, 0.5),
+    )
     save_cover(
         SOURCES / "villa-pool-wide.jpg",
         "villa-hero-desktop-1920",

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-15 — contenido exclusivo de Villa Calypso
+
+- Se retiró por completo el video de la introducción y del artefacto público.
+- La pantalla **Explorar** ahora usa un recorte fotográfico oficial de la villa en escritorio y móvil.
+- Se eliminó la galería externa de Acapulco y sus enlaces de navegación.
+- Todo el contenido visual publicado procede del anuncio oficial de Villa Calypso en Airbnb.
+- El workflow excluye videos, fuentes de edición y fotografías históricas que ya no forman parte de la experiencia.
+
 ## 2026-07-15 — rediseño editorial de alta resolución
 
 - Se amplió la presentación del video oficial y se mantuvo exclusivamente en la pantalla previa **Explorar**.

@@ -144,14 +144,12 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const siteIntro = $("#siteIntro");
-  const introVideo = $("#introVideo");
   const introExplore = $("#introExplore");
   if (siteIntro && introExplore) {
     const backgroundElements = Array.from(body.children).filter((element) => (
       element !== siteIntro && element.tagName !== "SCRIPT"
     ));
     let introIsOpen = true;
-    let videoFallbackTimer;
 
     const setBackgroundInert = (isInert) => {
       backgroundElements.forEach((element) => { element.inert = isInert; });
@@ -160,8 +158,6 @@
     const enterSite = () => {
       if (!introIsOpen) return;
       introIsOpen = false;
-      window.clearTimeout(videoFallbackTimer);
-      introVideo?.pause();
       siteIntro.classList.add("is-leaving");
       const delay = reducedMotion.matches ? 0 : 760;
       window.setTimeout(() => {
@@ -188,28 +184,6 @@
       }
     });
 
-    if (introVideo && !reducedMotion.matches) {
-      const showIntroVideo = () => {
-        window.clearTimeout(videoFallbackTimer);
-        siteIntro.classList.add("is-video-ready");
-      };
-      const useIntroPoster = () => siteIntro.classList.remove("is-video-ready");
-
-      introVideo.addEventListener("playing", showIntroVideo, { once: true });
-      introVideo.addEventListener("error", useIntroPoster, { once: true });
-      videoFallbackTimer = window.setTimeout(() => {
-        if (introVideo.readyState < 2) useIntroPoster();
-      }, 3000);
-      introVideo.play().catch(useIntroPoster);
-
-      document.addEventListener("visibilitychange", () => {
-        if (!introIsOpen) return;
-        if (document.hidden) introVideo.pause();
-        else introVideo.play().catch(useIntroPoster);
-      });
-    } else {
-      introVideo?.pause();
-    }
   }
 
   const revealItems = $$(".reveal");
@@ -391,7 +365,7 @@
 
   $$('img').forEach((image) => {
     image.addEventListener("error", () => {
-      image.closest(".gallery-card, .destination-card")?.classList.add("media-unavailable");
+      image.closest(".gallery-card")?.classList.add("media-unavailable");
       image.hidden = true;
     }, { once: true });
   });

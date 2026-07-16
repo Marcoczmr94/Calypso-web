@@ -9,12 +9,10 @@ Todos los recursos esenciales se sirven desde el repositorio. No hay imágenes b
 - `assets/brand/icon-32.png`, `icon-192.png`, `icon-512.png` — iconos derivados del isotipo del logotipo.
 - `assets/brand/social-card.jpg` — encuadre social derivado de la fotografía principal de la villa.
 
-## Video y posters oficiales
+## Introducción fotográfica
 
-- `assets/cinema/calypso-official-desktop.mp4` — video de introducción para escritorio.
-- `assets/cinema/calypso-official-mobile.mp4` — video de introducción para móvil.
-- `assets/cinema/calypso-official-desktop.jpg` — poster horizontal de respaldo.
-- `assets/cinema/calypso-official-mobile.jpg` — poster vertical de respaldo.
+- `assets/images/optimized/villa-intro-desktop-1920.*` — recorte horizontal de la villa para la pantalla **Explorar**.
+- `assets/images/optimized/villa-intro-mobile-900.*` — recorte vertical de la villa para la pantalla **Explorar**.
 
 ## Fotografías reales de la villa
 
@@ -24,20 +22,12 @@ Todos los recursos esenciales se sirven desde el repositorio. No hay imágenes b
 - `assets/images/source/villa-interior-wide.jpg` — interior abierto hacia el mar.
 - `assets/images/optimized/villa-*.avif` y `villa-*.webp` — variantes responsivas de 640 a 1920 px.
 - `assets/images/optimized/villa-hero-*` — recortes editoriales horizontal y vertical para la portada estática del sitio.
+- `assets/images/optimized/villa-intro-*` — recortes editoriales para la entrada fotográfica.
 
 Las cuatro fuentes de alta resolución proceden del [anuncio oficial de Villa Calypso en Airbnb](https://www.airbnb.mx/rooms/1324968381846668643), administrado por el propietario del proyecto. Los archivos anteriores de menor resolución se conservan únicamente como respaldo histórico.
 
-## Fotografías de Acapulco
-
-- `assets/images/source/acapulco-bay-day.jpg` — bahía de Santa Lucía entre palmeras. Fuente: [Pexels / Miguel Sanchez](https://www.pexels.com/photo/scenic-view-of-acapulco-bay-with-palm-trees-36242990/).
-- `assets/images/source/acapulco-coast.jpg` — costa rocosa de Acapulco. Fuente: [Pexels / Eden FC](https://www.pexels.com/photo/seashore-in-acapulco-mexico-17391414/).
-- `assets/images/source/acapulco-night.jpg` — panorama nocturno de la bahía. Fuente: [Pexels / Luis Merlos Vega](https://www.pexels.com/photo/acapulco-city-mexico-panorama-at-night-17231939/).
-- `assets/images/optimized/acapulco-*.webp` — variantes responsivas de 640 a 2400 px utilizadas en producción, con el JPEG original como respaldo.
-
-Las fotografías de contexto se publican conforme a la licencia de uso gratuito indicada en sus páginas de Pexels. Se mantienen separadas de la galería de la propiedad para no presentarlas como espacios de Villa Calypso.
-
 ## Procedencia y límites
 
-El video, la marca y los recursos originales del proyecto provienen del paquete `villa-calypso-v7-cinematografica-github (1).zip` entregado por el propietario. No se inventaron habitaciones, arquitectura, albercas ni vistas. Los únicos archivos generados son derivados técnicos —cambio de tamaño, formato, iconos y recortes— de las fuentes documentadas arriba.
+La marca y los recursos originales del proyecto provienen del material entregado por el propietario y del anuncio oficial de Villa Calypso. No se inventaron habitaciones, arquitectura, albercas ni vistas. Los únicos archivos generados son derivados técnicos —cambio de tamaño, formato, iconos y recortes— de las fuentes documentadas arriba.
 
-La carpeta `assets/images/source/` conserva las fuentes de edición dentro del repositorio, pero el workflow de GitHub Pages la excluye del artefacto público. El sitio publicado utiliza únicamente derivados optimizados.
+La carpeta `assets/images/source/` conserva las fuentes de edición dentro del repositorio, pero el workflow de GitHub Pages la excluye del artefacto público. También excluye videos y fotografías históricas de contexto. El sitio publicado utiliza únicamente contenido oficial de la villa y derivados optimizados.

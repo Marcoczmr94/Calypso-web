@@ -13,8 +13,8 @@
   <link rel="manifest" href="./site.webmanifest">
   <link rel="icon" href="./assets/brand/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/brand/icon-192.png">
-  <link rel="preload" href="./assets/cinema/calypso-official-desktop.jpg" as="image" media="(min-width: 681px)" fetchpriority="high">
-  <link rel="preload" href="./assets/cinema/calypso-official-mobile.jpg" as="image" media="(max-width: 680px)" fetchpriority="high">
+  <link rel="preload" href="./assets/images/optimized/villa-intro-desktop-1920.avif" as="image" type="image/avif" media="(min-width: 681px)" fetchpriority="high">
+  <link rel="preload" href="./assets/images/optimized/villa-intro-mobile-900.avif" as="image" type="image/avif" media="(max-width: 680px)" fetchpriority="high">
   <link rel="preload" href="./assets/images/optimized/villa-hero-desktop-1920.avif" as="image" type="image/avif" media="(min-width: 681px)">
   <link rel="preload" href="./assets/images/optimized/villa-hero-mobile-900.avif" as="image" type="image/avif" media="(max-width: 680px)">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -69,15 +69,14 @@
 <body>
   <div class="site-intro" id="siteIntro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
     <picture class="site-intro__poster" aria-hidden="true">
-      <source media="(max-width: 680px)" srcset="./assets/cinema/calypso-official-mobile.jpg">
-      <img src="./assets/cinema/calypso-official-desktop.jpg" width="1440" height="810" alt="" fetchpriority="high">
+      <source media="(max-width: 680px)" type="image/avif" srcset="./assets/images/optimized/villa-intro-mobile-900.avif">
+      <source media="(max-width: 680px)" type="image/webp" srcset="./assets/images/optimized/villa-intro-mobile-900.webp">
+      <source type="image/avif" srcset="./assets/images/optimized/villa-intro-desktop-1920.avif">
+      <source type="image/webp" srcset="./assets/images/optimized/villa-intro-desktop-1920.webp">
+      <img src="./assets/images/optimized/villa-intro-desktop-1920.jpg" width="1920" height="1080" alt="" fetchpriority="high">
     </picture>
-    <video class="site-intro__video" id="introVideo" muted autoplay loop playsinline preload="auto" poster="./assets/cinema/calypso-official-desktop.jpg" aria-hidden="true">
-      <source media="(max-width: 680px)" src="./assets/cinema/calypso-official-mobile.mp4" type="video/mp4">
-      <source src="./assets/cinema/calypso-official-desktop.mp4" type="video/mp4">
-    </video>
     <div class="site-intro__shade" aria-hidden="true"></div>
-    <div class="site-intro__edition" aria-hidden="true"><span>Película oficial</span><span>01 · 01</span></div>
+    <div class="site-intro__edition" aria-hidden="true"><span>Villa Calypso</span><span>Residencia privada</span></div>
     <div class="site-intro__top">
       <img src="./assets/brand/logo-calypso-600.png" width="600" height="127" alt="Villa Calypso">
       <span>Acapulco · México</span>
@@ -85,7 +84,7 @@
     <div class="site-intro__content">
       <div>
         <p class="site-intro__kicker">Villa privada frente al Pacífico</p>
-        <h1 id="introTitle">Tu estancia comienza aquí.</h1>
+        <h1 id="introTitle">La villa frente al horizonte.</h1>
       </div>
       <button class="site-intro__explore" id="introExplore" type="button">
         <span>Explorar</span><span class="site-intro__arrow" aria-hidden="true">→</span>
@@ -124,7 +123,6 @@
         <a href="#experiencia">Un día en Calypso</a>
         <a href="#servicios">Servicios incluidos</a>
         <a href="#concierge">Concierge opcional</a>
-        <a href="#acapulco">Acapulco</a>
         <a href="#estancia">Consultar estancia</a>
       </nav>
       <a class="button button--gold js-airbnb" href="https://www.airbnb.mx/rooms/1324968381846668643" target="_blank" rel="noopener noreferrer">Ver disponibilidad en Airbnb</a>
@@ -304,41 +302,6 @@
       </div>
     </section>
 
-    <section class="section destination-section" id="acapulco" aria-labelledby="contextTitle">
-      <div class="container">
-        <div class="section-heading destination-heading">
-          <p class="eyebrow reveal">El contexto</p>
-          <div>
-            <h2 id="contextTitle" class="reveal">Calypso es la experiencia. <em>Acapulco, el horizonte.</em></h2>
-            <p class="section-intro reveal">Bahía, costa y noches frente al Pacífico. La ciudad acompaña la estancia; la villa permanece como el centro.</p>
-          </div>
-        </div>
-        <div class="destination-grid" aria-label="Galería de Acapulco">
-          <article class="destination-card destination-card--tall reveal">
-            <picture>
-              <source type="image/webp" srcset="./assets/images/optimized/acapulco-bay-day-640.webp 640w, ./assets/images/optimized/acapulco-bay-day-1024.webp 1024w, ./assets/images/optimized/acapulco-bay-day-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 42vw">
-              <img src="./assets/images/optimized/acapulco-bay-day-1600.webp" width="1944" height="2896" alt="Bahía de Acapulco entre palmeras" loading="lazy" decoding="async">
-            </picture>
-            <div><span>01 · Bahía</span><h3>Santa Lucía</h3><p>La postal clásica de Acapulco, enmarcada por vegetación tropical.</p></div>
-          </article>
-          <article class="destination-card reveal">
-            <picture>
-              <source type="image/webp" srcset="./assets/images/optimized/acapulco-coast-640.webp 640w, ./assets/images/optimized/acapulco-coast-1024.webp 1024w, ./assets/images/optimized/acapulco-coast-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 42vw">
-              <img src="./assets/images/optimized/acapulco-coast-1600.webp" width="2400" height="3001" alt="Costa rocosa y mar azul en Acapulco" loading="lazy" decoding="async">
-            </picture>
-            <div><span>02 · Costa</span><h3>Pacífico abierto</h3><p>Roca, agua y la geografía que define a la ciudad.</p></div>
-          </article>
-          <article class="destination-card destination-card--wide reveal">
-            <picture>
-              <source type="image/webp" srcset="./assets/images/optimized/acapulco-night-1024.webp 1024w, ./assets/images/optimized/acapulco-night-1600.webp 1600w, ./assets/images/optimized/acapulco-night-2400.webp 2400w" sizes="(max-width: 760px) 100vw, 42vw">
-              <img src="./assets/images/optimized/acapulco-night-2400.webp" width="2400" height="1056" alt="Panorama nocturno de la bahía de Acapulco" loading="lazy" decoding="async">
-            </picture>
-            <div><span>03 · Noche</span><h3>La bahía encendida</h3><p>Luces sobre el agua cuando termina el día.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section booking-section" id="estancia" aria-labelledby="bookingTitle">
       <div class="container booking-card">
         <div class="booking-card__intro">
@@ -420,7 +383,7 @@
       </div>
       <div>
         <h2>Explorar</h2>
-        <a href="#villa">La villa</a><a href="#experiencia">La experiencia</a><a href="#servicios">Servicios</a><a href="#concierge">Concierge</a><a href="#acapulco">Acapulco</a>
+        <a href="#villa">La villa</a><a href="#experiencia">La experiencia</a><a href="#servicios">Servicios</a><a href="#concierge">Concierge</a>
       </div>
       <div>
         <h2>Contacto</h2>
