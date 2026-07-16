@@ -13,9 +13,7 @@ const required = [
   "assets/css/site.css",
   "assets/js/config.js",
   "assets/js/site.js",
-  "assets/brand/logo-calypso-600.png",
-  "assets/cinema/calypso-official-desktop.mp4",
-  "assets/cinema/calypso-official-mobile.mp4"
+  "assets/brand/logo-calypso-600.png"
 ];
 
 const failures = [];
@@ -43,11 +41,16 @@ const assertions = [
   [/application\/ld\+json/.test(html), "Existen datos estructurados"],
   [/MARCO-WEB-CALYPSO/.test(config), "El referido comercial está configurado"],
   [/527442297671/.test(config), "El número técnico de WhatsApp está configurado"],
-  [/id=["']siteIntro["']/.test(html) && /id=["']introExplore["']/.test(html), "La apertura incluye video y botón Explorar"],
+  [/id=["']siteIntro["']/.test(html) && /id=["']introExplore["']/.test(html), "La apertura fotográfica incluye el botón Explorar"],
+  [!/<video\b/.test(html) && !/assets\/cinema\//.test(html + css + siteJs), "El sitio no publica ni reproduce video"],
   [/intro-active/.test(siteJs) && /setBackgroundInert/.test(siteJs), "La introducción bloquea el fondo de forma accesible"],
   [/prefers-reduced-motion/.test(css), "Existe soporte para movimiento reducido"],
   [/srcset=/.test(html) && /type=["']image\/avif/.test(html), "La galería usa srcset y AVIF"],
-  [/width=["']1176["'] height=["']1752["']/.test(html), "Las fotos declaran dimensiones"],
+  [/villa-pool-wide-1920\.webp["'] width=["']1920["'] height=["']2560["']/.test(html), "Las fotos de alta resolución declaran dimensiones"],
+  [!/assets\/images\/source\//.test(html + siteJs), "La entrega no depende de fuentes de edición"],
+  [!/assets\/images\/(?:optimized\/)?acapulco-/.test(html + css + siteJs), "La interfaz no depende de fotografías externas de Acapulco"],
+  [!/assets\/images\/(?:pool|golden|bluehour|villa-table-local|acapulco-bay-premium)\.(?:jpg|webp)/.test(html + css + siteJs), "La entrega no depende de imágenes históricas"],
+  [!/optimized\/(?:pool|golden|bluehour|villa-table-local|acapulco-bay-premium)-/.test(html + css + siteJs), "La entrega no depende de variantes históricas"],
   [fs.statSync(path.join(root, "404.html")).size < 5000, "La página 404 es ligera"]
 ];
 

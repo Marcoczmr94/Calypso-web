@@ -1,6 +1,6 @@
 # Villa Calypso — sitio oficial
 
-Sitio estático de Villa Calypso, una residencia privada frente al mar en Acapulco. La experiencia abre con el video oficial y un acceso **Explorar**, seguido por las fotografías reales de la propiedad y dos canales de conversión claramente diferenciados:
+Sitio estático de Villa Calypso, una residencia privada frente al mar en Acapulco. La experiencia abre con una fotografía oficial de la propiedad y un acceso **Explorar**, seguida exclusivamente por contenido real del anuncio de Airbnb y dos canales de conversión claramente diferenciados:
 
 - Disponibilidad y reservación en [Airbnb](https://www.airbnb.mx/rooms/1324968381846668643).
 - Atención personalizada y concierge por WhatsApp Business al **+52 744 229 7671**.
@@ -79,7 +79,6 @@ El archivo `villa-calypso-hostinger.zip` contiene sólo los archivos que deben c
 ├── .nojekyll
 ├── assets/
 │   ├── brand/
-│   ├── cinema/
 │   ├── css/
 │   ├── images/
 │   └── js/
@@ -92,10 +91,10 @@ El archivo `villa-calypso-hostinger.zip` contiene sólo los archivos que deben c
 
 ## Medios
 
-Las fotografías visibles de la villa y los videos son locales. Las variantes AVIF y WebP se regeneran con:
+Todas las fotografías visibles se sirven localmente desde el repositorio. Tanto la pantalla **Explorar** como la portada principal usan imágenes fijas oficiales de la propiedad. Las variantes responsivas se regeneran con:
 
 ```powershell
 python .\tools\optimize_assets.py
 ```
 
-No se usan imágenes externas de Airbnb ni recursos generados por IA para representar la propiedad.
+Las fotografías visibles provienen del anuncio oficial administrado por el propietario. No se publican videos, fotografías externas de contexto ni recursos generados por IA para representar habitaciones, arquitectura o vistas. Consulta [`ASSETS.md`](./ASSETS.md) para la procedencia.

@@ -144,14 +144,12 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const siteIntro = $("#siteIntro");
-  const introVideo = $("#introVideo");
   const introExplore = $("#introExplore");
   if (siteIntro && introExplore) {
     const backgroundElements = Array.from(body.children).filter((element) => (
       element !== siteIntro && element.tagName !== "SCRIPT"
     ));
     let introIsOpen = true;
-    let videoFallbackTimer;
 
     const setBackgroundInert = (isInert) => {
       backgroundElements.forEach((element) => { element.inert = isInert; });
@@ -160,8 +158,6 @@
     const enterSite = () => {
       if (!introIsOpen) return;
       introIsOpen = false;
-      window.clearTimeout(videoFallbackTimer);
-      introVideo?.pause();
       siteIntro.classList.add("is-leaving");
       const delay = reducedMotion.matches ? 0 : 760;
       window.setTimeout(() => {
@@ -188,28 +184,6 @@
       }
     });
 
-    if (introVideo && !reducedMotion.matches) {
-      const showIntroVideo = () => {
-        window.clearTimeout(videoFallbackTimer);
-        siteIntro.classList.add("is-video-ready");
-      };
-      const useIntroPoster = () => siteIntro.classList.remove("is-video-ready");
-
-      introVideo.addEventListener("playing", showIntroVideo, { once: true });
-      introVideo.addEventListener("error", useIntroPoster, { once: true });
-      videoFallbackTimer = window.setTimeout(() => {
-        if (introVideo.readyState < 2) useIntroPoster();
-      }, 3000);
-      introVideo.play().catch(useIntroPoster);
-
-      document.addEventListener("visibilitychange", () => {
-        if (!introIsOpen) return;
-        if (document.hidden) introVideo.pause();
-        else introVideo.play().catch(useIntroPoster);
-      });
-    } else {
-      introVideo?.pause();
-    }
   }
 
   const revealItems = $$(".reveal");
@@ -226,16 +200,42 @@
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
 
-  const contextSection = $("#acapulco");
-  if (contextSection && "IntersectionObserver" in window) {
-    const contextObserver = new IntersectionObserver((entries, observer) => {
-      if (entries[0]?.isIntersecting) {
-        contextSection.classList.add("is-visible");
-        observer.disconnect();
-      }
-    }, { threshold: 0.15 });
-    contextObserver.observe(contextSection);
-  }
+  const journeyTabs = $$("[data-journey-index]");
+  const journeySlides = $$("[data-journey-slide]");
+  const journeyCopy = $("#journeyCopy");
+
+  const activateJourney = (index, moveFocus = false) => {
+    const nextTab = journeyTabs[index];
+    const nextSlide = journeySlides[index];
+    if (!nextTab || !nextSlide) return;
+
+    journeyTabs.forEach((tab, tabIndex) => {
+      const isActive = tabIndex === index;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+    journeySlides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === index);
+    });
+    if (journeyCopy) journeyCopy.textContent = nextTab.dataset.journeyCopy || "";
+    if (moveFocus) nextTab.focus();
+  };
+
+  journeyTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateJourney(index));
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
+      if (["ArrowRight", "ArrowDown"].includes(event.key)) nextIndex = (index + 1) % journeyTabs.length;
+      else if (["ArrowLeft", "ArrowUp"].includes(event.key)) nextIndex = (index - 1 + journeyTabs.length) % journeyTabs.length;
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = journeyTabs.length - 1;
+      else return;
+      event.preventDefault();
+      activateJourney(nextIndex, true);
+    });
+  });
+  if (journeyTabs.length) activateJourney(0);
 
   const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])";
   const trapFocus = (event, container) => {
@@ -284,19 +284,24 @@
 
   const galleryItems = [
     {
-      src: "./assets/images/pool.jpg",
+      src: "./assets/images/optimized/villa-pool-wide-1920.webp",
       alt: "Alberca infinita de Villa Calypso frente al Pacífico durante la hora dorada",
       caption: "Alberca infinita · vista al Pacífico"
     },
     {
-      src: "./assets/images/golden.jpg",
-      alt: "Vista dorada del mar desde Villa Calypso",
-      caption: "El Pacífico durante la hora dorada"
+      src: "./assets/images/optimized/villa-lounge-wide-1920.webp",
+      alt: "Sala panorámica de Villa Calypso con vista al mar",
+      caption: "Sala panorámica · Villa Calypso"
     },
     {
-      src: "./assets/images/bluehour.jpg",
-      alt: "Villa Calypso y el Pacífico durante la hora azul",
-      caption: "La villa durante la hora azul"
+      src: "./assets/images/optimized/villa-interior-wide-1920.webp",
+      alt: "Interior de Villa Calypso abierto hacia el Pacífico",
+      caption: "Interiores abiertos · Villa Calypso"
+    },
+    {
+      src: "./assets/images/optimized/villa-sunset-wide-1920.webp",
+      alt: "Atardecer reflejado en la alberca de Villa Calypso",
+      caption: "Atardecer · Villa Calypso"
     }
   ];
 

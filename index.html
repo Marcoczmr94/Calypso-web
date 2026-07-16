@@ -13,8 +13,10 @@
   <link rel="manifest" href="./site.webmanifest">
   <link rel="icon" href="./assets/brand/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/brand/icon-192.png">
-  <link rel="preload" href="./assets/cinema/calypso-official-desktop.jpg" as="image" media="(min-width: 681px)" fetchpriority="high">
-  <link rel="preload" href="./assets/cinema/calypso-official-mobile.jpg" as="image" media="(max-width: 680px)" fetchpriority="high">
+  <link rel="preload" href="./assets/images/optimized/villa-intro-desktop-1920.avif" as="image" type="image/avif" media="(min-width: 681px)" fetchpriority="high">
+  <link rel="preload" href="./assets/images/optimized/villa-intro-mobile-900.avif" as="image" type="image/avif" media="(max-width: 680px)" fetchpriority="high">
+  <link rel="preload" href="./assets/images/optimized/villa-hero-desktop-1920.avif" as="image" type="image/avif" media="(min-width: 681px)">
+  <link rel="preload" href="./assets/images/optimized/villa-hero-mobile-900.avif" as="image" type="image/avif" media="(max-width: 680px)">
   <link rel="stylesheet" href="./assets/css/site.css">
 
   <meta property="og:locale" content="es_MX">
@@ -42,9 +44,9 @@
     "sameAs": ["https://www.airbnb.mx/rooms/1324968381846668643"],
     "telephone": "+52 744 229 7671",
     "image": [
-      "https://villacalypso.mx/assets/images/pool.jpg",
-      "https://villacalypso.mx/assets/images/golden.jpg",
-      "https://villacalypso.mx/assets/images/bluehour.jpg"
+      "https://villacalypso.mx/assets/images/optimized/villa-pool-wide-1920.webp",
+      "https://villacalypso.mx/assets/images/optimized/villa-lounge-wide-1920.webp",
+      "https://villacalypso.mx/assets/images/optimized/villa-sunset-wide-1920.webp"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -67,14 +69,14 @@
 <body>
   <div class="site-intro" id="siteIntro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
     <picture class="site-intro__poster" aria-hidden="true">
-      <source media="(max-width: 680px)" srcset="./assets/cinema/calypso-official-mobile.jpg">
-      <img src="./assets/cinema/calypso-official-desktop.jpg" width="1440" height="810" alt="" fetchpriority="high">
+      <source media="(max-width: 680px)" type="image/avif" srcset="./assets/images/optimized/villa-intro-mobile-900.avif">
+      <source media="(max-width: 680px)" type="image/webp" srcset="./assets/images/optimized/villa-intro-mobile-900.webp">
+      <source type="image/avif" srcset="./assets/images/optimized/villa-intro-desktop-1920.avif">
+      <source type="image/webp" srcset="./assets/images/optimized/villa-intro-desktop-1920.webp">
+      <img src="./assets/images/optimized/villa-intro-desktop-1920.jpg" width="1920" height="1080" alt="" fetchpriority="high">
     </picture>
-    <video class="site-intro__video" id="introVideo" muted autoplay loop playsinline preload="auto" poster="./assets/cinema/calypso-official-desktop.jpg" aria-hidden="true">
-      <source media="(max-width: 680px)" src="./assets/cinema/calypso-official-mobile.mp4" type="video/mp4">
-      <source src="./assets/cinema/calypso-official-desktop.mp4" type="video/mp4">
-    </video>
     <div class="site-intro__shade" aria-hidden="true"></div>
+    <div class="site-intro__edition" aria-hidden="true"><span>Villa Calypso</span><span>Residencia privada</span></div>
     <div class="site-intro__top">
       <img src="./assets/brand/logo-calypso-600.png" width="600" height="127" alt="Villa Calypso">
       <span>Acapulco · México</span>
@@ -82,7 +84,7 @@
     <div class="site-intro__content">
       <div>
         <p class="site-intro__kicker">Villa privada frente al Pacífico</p>
-        <h1 id="introTitle">Tu estancia comienza aquí.</h1>
+        <h1 id="introTitle">La villa frente al horizonte.</h1>
       </div>
       <button class="site-intro__explore" id="introExplore" type="button">
         <span>Explorar</span><span class="site-intro__arrow" aria-hidden="true">→</span>
@@ -98,7 +100,7 @@
     </a>
     <nav class="desktop-nav" aria-label="Navegación principal">
       <a href="#villa">La villa</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#experiencia">La experiencia</a>
       <a href="#concierge">Concierge</a>
       <a href="#estancia">Tu estancia</a>
       <a class="button button--outline button--compact js-airbnb" href="https://www.airbnb.mx/rooms/1324968381846668643" target="_blank" rel="noopener noreferrer">Ver disponibilidad</a>
@@ -118,9 +120,9 @@
       <p class="mobile-menu__label" id="mobileMenuTitle">Explorar Villa Calypso</p>
       <nav aria-label="Navegación móvil">
         <a href="#villa">La villa</a>
+        <a href="#experiencia">Un día en Calypso</a>
         <a href="#servicios">Servicios incluidos</a>
         <a href="#concierge">Concierge opcional</a>
-        <a href="#acapulco">Acapulco</a>
         <a href="#estancia">Consultar estancia</a>
       </nav>
       <a class="button button--gold js-airbnb" href="https://www.airbnb.mx/rooms/1324968381846668643" target="_blank" rel="noopener noreferrer">Ver disponibilidad en Airbnb</a>
@@ -130,8 +132,11 @@
   <main id="contenido">
     <section class="hero" id="inicio" aria-labelledby="heroTitle">
       <picture class="hero__poster" aria-hidden="true">
-        <source media="(max-width: 680px)" srcset="./assets/cinema/calypso-official-mobile.jpg">
-        <img src="./assets/cinema/calypso-official-desktop.jpg" width="1440" height="810" alt="" fetchpriority="high">
+        <source media="(max-width: 680px)" type="image/avif" srcset="./assets/images/optimized/villa-hero-mobile-900.avif">
+        <source media="(max-width: 680px)" type="image/webp" srcset="./assets/images/optimized/villa-hero-mobile-900.webp">
+        <source type="image/avif" srcset="./assets/images/optimized/villa-hero-desktop-1920.avif">
+        <source type="image/webp" srcset="./assets/images/optimized/villa-hero-desktop-1920.webp">
+        <img src="./assets/images/optimized/villa-hero-desktop-1920.jpg" width="1920" height="1080" alt="" fetchpriority="high">
       </picture>
       <div class="hero__shade"></div>
       <div class="hero__content">
@@ -180,36 +185,78 @@
           </div>
         </div>
 
-        <div class="gallery" aria-label="Galería de Villa Calypso">
+        <div class="gallery gallery--editorial" aria-label="Galería de Villa Calypso">
           <button class="gallery-card gallery-card--main reveal" type="button" data-gallery-index="0" aria-label="Ampliar: alberca infinita frente al Pacífico">
             <picture>
-              <source type="image/avif" srcset="./assets/images/optimized/pool-480.avif 480w, ./assets/images/optimized/pool-768.avif 768w, ./assets/images/optimized/pool-1176.avif 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 90vw, 59vw">
-              <source type="image/webp" srcset="./assets/images/optimized/pool-480.webp 480w, ./assets/images/optimized/pool-768.webp 768w, ./assets/images/optimized/pool-1176.webp 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 90vw, 59vw">
-              <img src="./assets/images/pool.jpg" width="1176" height="1752" alt="Alberca infinita de Villa Calypso frente al Pacífico durante la hora dorada" decoding="async">
+              <source type="image/avif" srcset="./assets/images/optimized/villa-pool-wide-640.avif 640w, ./assets/images/optimized/villa-pool-wide-1024.avif 1024w, ./assets/images/optimized/villa-pool-wide-1600.avif 1600w, ./assets/images/optimized/villa-pool-wide-1920.avif 1920w" sizes="(max-width: 760px) 100vw, 46vw">
+              <source type="image/webp" srcset="./assets/images/optimized/villa-pool-wide-640.webp 640w, ./assets/images/optimized/villa-pool-wide-1024.webp 1024w, ./assets/images/optimized/villa-pool-wide-1600.webp 1600w, ./assets/images/optimized/villa-pool-wide-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 46vw">
+              <img src="./assets/images/optimized/villa-pool-wide-1920.webp" width="1920" height="2560" alt="Alberca infinita de Villa Calypso frente al Pacífico durante la hora dorada" decoding="async">
             </picture>
             <span class="gallery-card__caption">Alberca infinita · Pacífico</span>
-            <span class="gallery-card__action" aria-hidden="true">Ampliar</span>
+            <span class="gallery-card__action" aria-hidden="true">+</span>
           </button>
-          <div class="gallery__side">
-            <button class="gallery-card reveal" type="button" data-gallery-index="1" aria-label="Ampliar: vista dorada al mar">
-              <picture>
-                <source type="image/avif" srcset="./assets/images/optimized/golden-480.avif 480w, ./assets/images/optimized/golden-768.avif 768w, ./assets/images/optimized/golden-1176.avif 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 44vw, 27vw">
-                <source type="image/webp" srcset="./assets/images/optimized/golden-480.webp 480w, ./assets/images/optimized/golden-768.webp 768w, ./assets/images/optimized/golden-1176.webp 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 44vw, 27vw">
-                <img src="./assets/images/golden.jpg" width="1176" height="1752" alt="Vista dorada del mar desde Villa Calypso" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-card__caption">Hora dorada</span>
-              <span class="gallery-card__action" aria-hidden="true">Ampliar</span>
-            </button>
-            <button class="gallery-card reveal" type="button" data-gallery-index="2" aria-label="Ampliar: Villa Calypso durante la hora azul">
-              <picture>
-                <source type="image/avif" srcset="./assets/images/optimized/bluehour-480.avif 480w, ./assets/images/optimized/bluehour-768.avif 768w, ./assets/images/optimized/bluehour-1176.avif 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 44vw, 27vw">
-                <source type="image/webp" srcset="./assets/images/optimized/bluehour-480.webp 480w, ./assets/images/optimized/bluehour-768.webp 768w, ./assets/images/optimized/bluehour-1176.webp 1176w" sizes="(max-width: 700px) 100vw, (max-width: 980px) 44vw, 27vw">
-                <img src="./assets/images/bluehour.jpg" width="1176" height="1752" alt="Villa Calypso y el Pacífico durante la hora azul" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-card__caption">Hora azul</span>
-              <span class="gallery-card__action" aria-hidden="true">Ampliar</span>
-            </button>
-          </div>
+          <button class="gallery-card reveal" type="button" data-gallery-index="1" aria-label="Ampliar: sala panorámica de Villa Calypso">
+            <picture>
+              <source type="image/avif" srcset="./assets/images/optimized/villa-lounge-wide-640.avif 640w, ./assets/images/optimized/villa-lounge-wide-1024.avif 1024w, ./assets/images/optimized/villa-lounge-wide-1600.avif 1600w" sizes="(max-width: 760px) 100vw, 25vw">
+              <source type="image/webp" srcset="./assets/images/optimized/villa-lounge-wide-640.webp 640w, ./assets/images/optimized/villa-lounge-wide-1024.webp 1024w, ./assets/images/optimized/villa-lounge-wide-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 25vw">
+              <img src="./assets/images/optimized/villa-lounge-wide-1920.webp" width="1920" height="2560" alt="Sala panorámica de Villa Calypso con vista al mar" loading="lazy" decoding="async">
+            </picture>
+            <span class="gallery-card__caption">Sala panorámica</span>
+            <span class="gallery-card__action" aria-hidden="true">+</span>
+          </button>
+          <button class="gallery-card reveal" type="button" data-gallery-index="2" aria-label="Ampliar: interiores frente al Pacífico">
+            <picture>
+              <source type="image/avif" srcset="./assets/images/optimized/villa-interior-wide-640.avif 640w, ./assets/images/optimized/villa-interior-wide-1024.avif 1024w, ./assets/images/optimized/villa-interior-wide-1600.avif 1600w" sizes="(max-width: 760px) 100vw, 25vw">
+              <source type="image/webp" srcset="./assets/images/optimized/villa-interior-wide-640.webp 640w, ./assets/images/optimized/villa-interior-wide-1024.webp 1024w, ./assets/images/optimized/villa-interior-wide-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 25vw">
+              <img src="./assets/images/optimized/villa-interior-wide-1920.webp" width="1920" height="2560" alt="Interior de Villa Calypso abierto hacia el Pacífico" loading="lazy" decoding="async">
+            </picture>
+            <span class="gallery-card__caption">Interiores abiertos</span>
+            <span class="gallery-card__action" aria-hidden="true">+</span>
+          </button>
+          <button class="gallery-card gallery-card--wide reveal" type="button" data-gallery-index="3" aria-label="Ampliar: atardecer desde Villa Calypso">
+            <picture>
+              <source type="image/avif" srcset="./assets/images/optimized/villa-sunset-wide-640.avif 640w, ./assets/images/optimized/villa-sunset-wide-1024.avif 1024w, ./assets/images/optimized/villa-sunset-wide-1600.avif 1600w, ./assets/images/optimized/villa-sunset-wide-1920.avif 1920w" sizes="(max-width: 760px) 100vw, 50vw">
+              <source type="image/webp" srcset="./assets/images/optimized/villa-sunset-wide-640.webp 640w, ./assets/images/optimized/villa-sunset-wide-1024.webp 1024w, ./assets/images/optimized/villa-sunset-wide-1600.webp 1600w, ./assets/images/optimized/villa-sunset-wide-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 50vw">
+              <img src="./assets/images/optimized/villa-sunset-wide-1920.webp" width="1920" height="2560" alt="Atardecer reflejado en la alberca de Villa Calypso" loading="lazy" decoding="async">
+            </picture>
+            <span class="gallery-card__caption">Atardeceres sin prisa</span>
+            <span class="gallery-card__action" aria-hidden="true">+</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey-section" id="experiencia" aria-labelledby="journeyTitle">
+      <div class="journey-stage" aria-hidden="true">
+        <picture class="journey-slide is-active" data-journey-slide="0">
+          <source type="image/avif" srcset="./assets/images/optimized/villa-pool-wide-1024.avif 1024w, ./assets/images/optimized/villa-pool-wide-1600.avif 1600w, ./assets/images/optimized/villa-pool-wide-1920.avif 1920w" sizes="100vw">
+          <img src="./assets/images/optimized/villa-pool-wide-1920.webp" width="1920" height="2560" alt="" loading="lazy">
+        </picture>
+        <picture class="journey-slide" data-journey-slide="1">
+          <source type="image/avif" srcset="./assets/images/optimized/villa-lounge-wide-1024.avif 1024w, ./assets/images/optimized/villa-lounge-wide-1600.avif 1600w, ./assets/images/optimized/villa-lounge-wide-1920.avif 1920w" sizes="100vw">
+          <img src="./assets/images/optimized/villa-lounge-wide-1920.webp" width="1920" height="2560" alt="" loading="lazy">
+        </picture>
+        <picture class="journey-slide" data-journey-slide="2">
+          <source type="image/avif" srcset="./assets/images/optimized/villa-sunset-wide-1024.avif 1024w, ./assets/images/optimized/villa-sunset-wide-1600.avif 1600w, ./assets/images/optimized/villa-sunset-wide-1920.avif 1920w" sizes="100vw">
+          <img src="./assets/images/optimized/villa-sunset-wide-1920.webp" width="1920" height="2560" alt="" loading="lazy">
+        </picture>
+        <picture class="journey-slide" data-journey-slide="3">
+          <source type="image/avif" srcset="./assets/images/optimized/villa-interior-wide-1024.avif 1024w, ./assets/images/optimized/villa-interior-wide-1600.avif 1600w, ./assets/images/optimized/villa-interior-wide-1920.avif 1920w" sizes="100vw">
+          <img src="./assets/images/optimized/villa-interior-wide-1920.webp" width="1920" height="2560" alt="" loading="lazy">
+        </picture>
+      </div>
+      <div class="journey-shade" aria-hidden="true"></div>
+      <div class="container journey-inner">
+        <div class="journey-copy reveal">
+          <p class="eyebrow">La experiencia</p>
+          <h2 id="journeyTitle">Un día en Calypso.</h2>
+          <p id="journeyCopy" aria-live="polite">El día comienza frente al Pacífico, con la alberca en silencio y la casa despertando al ritmo de tu grupo.</p>
+        </div>
+        <div class="journey-tabs" role="tablist" aria-label="Momentos de una estancia en Villa Calypso">
+          <button class="journey-tab is-active" type="button" role="tab" aria-selected="true" data-journey-index="0" data-journey-copy="El día comienza frente al Pacífico, con la alberca en silencio y la casa despertando al ritmo de tu grupo."><span>01</span><strong>Amanecer</strong><small>Café, agua y horizonte.</small><b aria-hidden="true">→</b></button>
+          <button class="journey-tab" type="button" role="tab" aria-selected="false" data-journey-index="1" data-journey-copy="Los interiores abiertos permiten compartir sin perder la vista, la luz natural ni la sensación de amplitud."><span>02</span><strong>Día</strong><small>Arquitectura para compartir.</small><b aria-hidden="true">→</b></button>
+          <button class="journey-tab" type="button" role="tab" aria-selected="false" data-journey-index="2" data-journey-copy="Cuando cae el sol, la villa se convierte en un mirador privado sobre el Pacífico."><span>03</span><strong>Atardecer</strong><small>El cielo cambia el ritmo.</small><b aria-hidden="true">→</b></button>
+          <button class="journey-tab" type="button" role="tab" aria-selected="false" data-journey-index="3" data-journey-copy="La noche permanece dentro de la villa: conversación, privacidad y el mar como fondo."><span>04</span><strong>Noche</strong><small>Privacidad frente al mar.</small><b aria-hidden="true">→</b></button>
         </div>
       </div>
     </section>
@@ -252,15 +299,6 @@
           <article class="reveal"><span>Movimiento</span><h3>Transportación</h3><p>Traslados sujetos a cotización y disponibilidad.</p></article>
           <article class="reveal"><span>Bienestar</span><h3>Experiencias privadas</h3><p>Masajes y servicios coordinados dentro de la villa.</p></article>
         </div>
-      </div>
-    </section>
-
-    <section class="context-section" id="acapulco" aria-labelledby="contextTitle">
-      <div class="context-section__media" aria-hidden="true"></div>
-      <div class="container context-section__copy">
-        <p class="eyebrow reveal">El contexto</p>
-        <h2 id="contextTitle" class="reveal">Calypso es la experiencia. <em>Acapulco, el horizonte.</em></h2>
-        <p class="reveal">La ciudad aparece como paisaje e identidad. La villa permanece como el centro de la estancia.</p>
       </div>
     </section>
 
@@ -345,7 +383,7 @@
       </div>
       <div>
         <h2>Explorar</h2>
-        <a href="#villa">La villa</a><a href="#servicios">Servicios</a><a href="#concierge">Concierge</a><a href="#acapulco">Acapulco</a>
+        <a href="#villa">La villa</a><a href="#experiencia">La experiencia</a><a href="#servicios">Servicios</a><a href="#concierge">Concierge</a>
       </div>
       <div>
         <h2>Contacto</h2>
@@ -371,7 +409,7 @@
         <button class="icon-button" id="lightboxClose" type="button" aria-label="Cerrar galería">×</button>
       </div>
       <figure>
-        <img id="lightboxImage" src="./assets/images/pool.jpg" width="1176" height="1752" alt="">
+        <img id="lightboxImage" src="./assets/images/optimized/villa-pool-wide-1920.webp" width="1920" height="2560" alt="">
         <figcaption id="lightboxCaption"></figcaption>
       </figure>
       <div class="lightbox__controls">
