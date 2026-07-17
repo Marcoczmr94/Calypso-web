@@ -25,7 +25,9 @@ Toda la configuración está centralizada en [`assets/js/config.js`](./assets/js
 window.SITE_CONFIG = Object.freeze({
   airbnbUrl: "https://www.airbnb.mx/rooms/1324968381846668643",
   whatsappNumber: "527442297671",
-  referralCode: "MARCO-WEB-CALYPSO",
+  referralCode: "MCZ-REFERIDO",
+  promotionCode: "MCZ10",
+  promotionDiscount: "10%",
   instagramUrl: "",
   facebookUrl: "",
   tiktokUrl: ""
@@ -45,12 +47,13 @@ Si cambia el dominio público, actualiza también estas ubicaciones:
 
 Cada enlace de WhatsApp incluye:
 
-- Referencia comercial `MARCO-WEB-CALYPSO`.
-- Folio persistente por navegador con formato `VC-AAAAMMDD-XXXXX`.
+- Referencia comercial `MCZ-REFERIDO` para atribuir solicitudes y comisiones.
+- Código promocional `MCZ10` con 10% de descuento sobre la tarifa de hospedaje en reservaciones directas confirmadas por el anfitrión.
+- Un folio nuevo en cada apertura de WhatsApp con formato `VC-AAAAMMDD-HHMMSS-01`; la secuencia diaria `01`, `02`, etc. se conserva por navegador.
 - Parámetros UTM capturados en la primera visita y conservados localmente.
 - Datos del formulario cuando el visitante solicita una estancia personalizada.
 
-El sitio no procesa pagos, no simula disponibilidad y no confirma reservaciones.
+La fecha, hora y referencia MCZ permiten conciliar cada conversación. La secuencia es local porque GitHub Pages no tiene base de datos; un consecutivo global entre todos los dispositivos requerirá un servicio central. El sitio no procesa pagos, no simula disponibilidad y no confirma reservaciones.
 
 ## GitHub Pages
 

@@ -43,7 +43,7 @@ Comprueba en teléfono y computadora:
 - El logotipo y las tres fotografías de galería aparecen.
 - No hay errores 404 en la consola o red.
 - El botón de Airbnb abre el anuncio correcto.
-- WhatsApp abre `527442297671` e incluye `MARCO-WEB-CALYPSO` y un folio `VC-...`.
+- WhatsApp abre `527442297671` e incluye `MCZ-REFERIDO`, el código `MCZ10`, el beneficio de 10% y un folio `VC-AAAAMMDD-HHMMSS-01`.
 - El menú, la galería, Escape y el formulario funcionan con teclado.
 - `robots.txt` y `sitemap.xml` responden con estado 200.
 

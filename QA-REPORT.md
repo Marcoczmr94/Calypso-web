@@ -1,6 +1,6 @@
 # Reporte de QA — Villa Calypso
 
-Fecha de corte: 15 de julio de 2026.
+Fecha de corte: 17 de julio de 2026.
 
 ## Resultado
 
@@ -15,7 +15,7 @@ La pantalla **Explorar** usa una fotografía fija de la alberca y el atardecer, 
 - Introducción: imagen de escritorio 1920 × 1080 e imagen móvil 900 × 1200 seleccionadas correctamente por el navegador.
 - Galería: cuatro fotografías oficiales, contador `1 de 4`, navegación siguiente/anterior, cierre y retorno de foco.
 - Experiencia: cuatro momentos con cambio de imagen, texto, `aria-selected` y navegación por flechas, Inicio y Fin.
-- Conversión: enlaces de Airbnb y WhatsApp, parámetros UTM, código `MARCO-WEB-CALYPSO` y folio persistente `VC-AAAAMMDD-XXXXX`.
+- Conversión: enlaces de Airbnb y WhatsApp, parámetros UTM, referencia `MCZ-REFERIDO`, promoción `MCZ10` con 10% de descuento y folio por solicitud `VC-AAAAMMDD-HHMMSS-01`.
 - Formulario: validación de fechas y transferencia de fechas, huéspedes y servicios a los canales correspondientes; su lógica no fue modificada.
 - Accesibilidad: estructura semántica, textos alternativos, estados ARIA, foco visible y reducción de movimiento.
 
