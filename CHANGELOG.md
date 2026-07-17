@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-17 — folios MCZ y beneficio web
+
+- Se sustituyó la referencia anterior por `MCZ-REFERIDO` para atribución comercial y control de comisiones.
+- Cada apertura de WhatsApp genera un folio con fecha, hora y secuencia diaria, por ejemplo `VC-20260717-153012-01`.
+- Se añadió el código `MCZ10` y un beneficio de 10% sobre la tarifa de hospedaje para reservaciones directas confirmadas por el anfitrión.
+- La sección de estancia comunica el beneficio, sus condiciones y agrega automáticamente el código al mensaje obligatorio.
+
 ## 2026-07-15 — contenido exclusivo de Villa Calypso
 
 - Se retiró por completo el video de la introducción y del artefacto público.

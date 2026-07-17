@@ -35,16 +35,17 @@
   };
 
   const createLeadId = () => {
-    const stamp = toLocalDate(new Date()).replaceAll("-", "");
-    const random = Math.random().toString(36).slice(2, 7).toUpperCase().padEnd(5, "X");
-    return `VC-${stamp}-${random}`;
+    const now = new Date();
+    const stamp = toLocalDate(now).replaceAll("-", "");
+    const time = [now.getHours(), now.getMinutes(), now.getSeconds()]
+      .map((value) => String(value).padStart(2, "0"))
+      .join("");
+    const sequenceKey = `calypsoLeadSequence:${stamp}`;
+    const savedSequence = Number.parseInt(storage.get(sequenceKey) || "0", 10);
+    const sequence = Number.isFinite(savedSequence) && savedSequence >= 0 ? savedSequence + 1 : 1;
+    storage.set(sequenceKey, String(sequence));
+    return `VC-${stamp}-${time}-${String(sequence).padStart(2, "0")}`;
   };
-
-  let leadId = storage.get("calypsoLeadId");
-  if (!leadId || !/^VC-\d{8}-[A-Z0-9]{5}$/.test(leadId)) {
-    leadId = createLeadId();
-    storage.set("calypsoLeadId", leadId);
-  }
 
   const captureUtm = () => {
     const params = new URLSearchParams(window.location.search);
@@ -75,7 +76,8 @@
 
   const whatsappMessage = (intent = "una consulta general", extra = "") => {
     const details = extra ? `\n\n${extra.trim()}` : "";
-    return `Hola, vengo del sitio oficial de Villa Calypso y me interesa ${intent}.${details}\n\nOrigen: Sitio web Villa Calypso\nReferencia comercial: ${config.referralCode}\nFolio web: ${leadId}\nCampaña: ${utmSummary()}`;
+    const leadId = createLeadId();
+    return `Hola, vengo del sitio oficial de Villa Calypso y me interesa ${intent}.${details}\n\nOrigen: Sitio web Villa Calypso\nReferencia comercial: ${config.referralCode}\nCódigo promocional: ${config.promotionCode}\nBeneficio web: ${config.promotionDiscount} de descuento\nFolio web: ${leadId}\nCampaña: ${utmSummary()}`;
   };
 
   const whatsappUrl = (intent, extra = "") => {
@@ -116,8 +118,11 @@
   });
 
   $$(".js-whatsapp").forEach((link) => {
-    link.href = whatsappUrl(link.dataset.intent || "una consulta general");
-    link.addEventListener("click", () => showToast("Abriendo WhatsApp con tu folio de seguimiento…"));
+    link.href = `https://wa.me/${config.whatsappNumber}`;
+    link.addEventListener("click", () => {
+      link.href = whatsappUrl(link.dataset.intent || "una consulta general");
+      showToast("Abriendo WhatsApp con tu folio y código MCZ10…");
+    });
   });
 
   const catalogLink = $("#catalogLink");
