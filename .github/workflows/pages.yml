@@ -42,6 +42,7 @@ jobs:
           rm -f _site/assets/images/optimized/golden-*
           rm -f _site/assets/images/optimized/pool-*
           rm -f _site/assets/images/optimized/villa-table-local-*
+          rm -f _site/assets/images/optimized/villa-intro-*
           cp index.html 404.html robots.txt sitemap.xml site.webmanifest CNAME .nojekyll _site/
 
       - name: Empaquetar sitio

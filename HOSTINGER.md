@@ -39,11 +39,11 @@ Si el dominio cambia en el futuro, actualiza las cuatro ubicaciones y vuelve a c
 
 Comprueba en teléfono y computadora:
 
-- La introducción carga con poster, reproduce el video cuando el navegador lo permite y abre la portada al pulsar **Explorar**.
-- El logotipo y las tres fotografías de galería aparecen.
+- La portada abre directamente con la campaña **Vacaciones de verano 2026**, el beneficio `MCZ10` y las acciones de WhatsApp y Airbnb.
+- El logotipo y las cuatro fotografías de galería aparecen.
 - No hay errores 404 en la consola o red.
 - El botón de Airbnb abre el anuncio correcto.
-- WhatsApp abre `527442297671` e incluye `MCZ-REFERIDO`, el código `MCZ10`, el beneficio de 10% y un folio `VC-AAAAMMDD-HHMMSS-01`.
+- WhatsApp abre `527442297671` e incluye `VACACIONES-VERANO-2026`, `MCZ-REFERIDO`, el código `MCZ10`, el beneficio de 10% y un folio `VC-AAAAMMDD-HHMMSS-01`.
 - El menú, la galería, Escape y el formulario funcionan con teclado.
 - `robots.txt` y `sitemap.xml` responden con estado 200.
 

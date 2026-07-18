@@ -77,7 +77,7 @@
   const whatsappMessage = (intent = "una consulta general", extra = "") => {
     const details = extra ? `\n\n${extra.trim()}` : "";
     const leadId = createLeadId();
-    return `Hola, vengo del sitio oficial de Villa Calypso y me interesa ${intent}.${details}\n\nOrigen: Sitio web Villa Calypso\nReferencia comercial: ${config.referralCode}\nCódigo promocional: ${config.promotionCode}\nBeneficio web: ${config.promotionDiscount} de descuento\nFolio web: ${leadId}\nCampaña: ${utmSummary()}`;
+    return `Hola, vengo del sitio oficial de Villa Calypso y me interesa ${intent}.${details}\n\nOrigen: Sitio web Villa Calypso\nCampaña comercial: ${config.campaignCode}\nReferencia comercial: ${config.referralCode}\nCódigo promocional: ${config.promotionCode}\nBeneficio web: ${config.promotionDiscount} de descuento\nFolio web: ${leadId}\nAtribución digital: ${utmSummary()}`;
   };
 
   const whatsappUrl = (intent, extra = "") => {
@@ -148,49 +148,6 @@
   window.addEventListener("scroll", updateHeader, { passive: true });
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const siteIntro = $("#siteIntro");
-  const introExplore = $("#introExplore");
-  if (siteIntro && introExplore) {
-    const backgroundElements = Array.from(body.children).filter((element) => (
-      element !== siteIntro && element.tagName !== "SCRIPT"
-    ));
-    let introIsOpen = true;
-
-    const setBackgroundInert = (isInert) => {
-      backgroundElements.forEach((element) => { element.inert = isInert; });
-    };
-
-    const enterSite = () => {
-      if (!introIsOpen) return;
-      introIsOpen = false;
-      siteIntro.classList.add("is-leaving");
-      const delay = reducedMotion.matches ? 0 : 760;
-      window.setTimeout(() => {
-        siteIntro.hidden = true;
-        body.classList.remove("intro-active");
-        setBackgroundInert(false);
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        $("#heroTitle")?.focus({ preventScroll: true });
-      }, delay);
-    };
-
-    body.classList.add("intro-active");
-    setBackgroundInert(true);
-    window.requestAnimationFrame(() => introExplore.focus({ preventScroll: true }));
-
-    introExplore.addEventListener("click", enterSite);
-    siteIntro.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        enterSite();
-      } else if (event.key === "Tab") {
-        event.preventDefault();
-        introExplore.focus();
-      }
-    });
-
-  }
-
   const revealItems = $$(".reveal");
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     const revealObserver = new IntersectionObserver((entries, observer) => {

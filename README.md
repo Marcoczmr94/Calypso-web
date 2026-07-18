@@ -1,6 +1,6 @@
 # Villa Calypso — sitio oficial
 
-Sitio estático de Villa Calypso, una residencia privada frente al mar en Acapulco. La experiencia abre con una fotografía oficial de la propiedad y un acceso **Explorar**, seguida exclusivamente por contenido real del anuncio de Airbnb y dos canales de conversión claramente diferenciados:
+Sitio estático de Villa Calypso, una residencia privada frente al mar en Acapulco. La portada abre directamente con la campaña **Vacaciones de verano 2026**, el beneficio web y dos canales de conversión claramente diferenciados:
 
 - Disponibilidad y reservación en [Airbnb](https://www.airbnb.mx/rooms/1324968381846668643).
 - Atención personalizada y concierge por WhatsApp Business al **+52 744 229 7671**.
@@ -26,6 +26,7 @@ window.SITE_CONFIG = Object.freeze({
   airbnbUrl: "https://www.airbnb.mx/rooms/1324968381846668643",
   whatsappNumber: "527442297671",
   referralCode: "MCZ-REFERIDO",
+  campaignCode: "VACACIONES-VERANO-2026",
   promotionCode: "MCZ10",
   promotionDiscount: "10%",
   instagramUrl: "",
@@ -47,6 +48,7 @@ Si cambia el dominio público, actualiza también estas ubicaciones:
 
 Cada enlace de WhatsApp incluye:
 
+- Campaña comercial `VACACIONES-VERANO-2026`.
 - Referencia comercial `MCZ-REFERIDO` para atribuir solicitudes y comisiones.
 - Código promocional `MCZ10` con 10% de descuento sobre la tarifa de hospedaje en reservaciones directas confirmadas por el anfitrión.
 - Un folio nuevo en cada apertura de WhatsApp con formato `VC-AAAAMMDD-HHMMSS-01`; la secuencia diaria `01`, `02`, etc. se conserva por navegador.
@@ -54,6 +56,17 @@ Cada enlace de WhatsApp incluye:
 - Datos del formulario cuando el visitante solicita una estancia personalizada.
 
 La fecha, hora y referencia MCZ permiten conciliar cada conversación. La secuencia es local porque GitHub Pages no tiene base de datos; un consecutivo global entre todos los dispositivos requerirá un servicio central. El sitio no procesa pagos, no simula disponibilidad y no confirma reservaciones.
+
+## Enlaces listos para difusión
+
+Usa un enlace distinto en cada canal para conservar el origen dentro del mensaje de WhatsApp:
+
+- WhatsApp: `https://villacalypso.mx/?utm_source=whatsapp&utm_medium=mensaje&utm_campaign=vacaciones_verano_2026`
+- Instagram: `https://villacalypso.mx/?utm_source=instagram&utm_medium=social&utm_campaign=vacaciones_verano_2026`
+- Facebook: `https://villacalypso.mx/?utm_source=facebook&utm_medium=social&utm_campaign=vacaciones_verano_2026`
+- Anuncio pagado: `https://villacalypso.mx/?utm_source=meta&utm_medium=paid_social&utm_campaign=vacaciones_verano_2026`
+
+Consulta [`CAMPANA-VACACIONES.md`](./CAMPANA-VACACIONES.md) para textos de difusión y el proceso de seguimiento de prospectos.
 
 ## GitHub Pages
 
@@ -94,7 +107,7 @@ El archivo `villa-calypso-hostinger.zip` contiene sólo los archivos que deben c
 
 ## Medios
 
-Todas las fotografías visibles se sirven localmente desde el repositorio. Tanto la pantalla **Explorar** como la portada principal usan imágenes fijas oficiales de la propiedad. Las variantes responsivas se regeneran con:
+Todas las fotografías visibles se sirven localmente desde el repositorio. La portada usa recortes oficiales independientes para escritorio y móvil. Las variantes responsivas se regeneran con:
 
 ```powershell
 python .\tools\optimize_assets.py

@@ -9,10 +9,10 @@ Todos los recursos esenciales se sirven desde el repositorio. No hay imágenes b
 - `assets/brand/icon-32.png`, `icon-192.png`, `icon-512.png` — iconos derivados del isotipo del logotipo.
 - `assets/brand/social-card.jpg` — encuadre social derivado de la fotografía principal de la villa.
 
-## Introducción fotográfica
+## Recortes históricos de introducción
 
-- `assets/images/optimized/villa-intro-desktop-1920.*` — recorte horizontal de la villa para la pantalla **Explorar**.
-- `assets/images/optimized/villa-intro-mobile-900.*` — recorte vertical de la villa para la pantalla **Explorar**.
+- `assets/images/optimized/villa-intro-desktop-1920.*` — recorte histórico conservado para edición; ya no se publica.
+- `assets/images/optimized/villa-intro-mobile-900.*` — recorte histórico conservado para edición; ya no se publica.
 
 ## Fotografías reales de la villa
 
@@ -22,7 +22,7 @@ Todos los recursos esenciales se sirven desde el repositorio. No hay imágenes b
 - `assets/images/source/villa-interior-wide.jpg` — interior abierto hacia el mar.
 - `assets/images/optimized/villa-*.avif` y `villa-*.webp` — variantes responsivas de 640 a 1920 px.
 - `assets/images/optimized/villa-hero-*` — recortes editoriales horizontal y vertical para la portada estática del sitio.
-- `assets/images/optimized/villa-intro-*` — recortes editoriales para la entrada fotográfica.
+- `assets/images/optimized/villa-intro-*` — recortes históricos de la entrada fotográfica, excluidos de producción.
 
 Las cuatro fuentes de alta resolución proceden del [anuncio oficial de Villa Calypso en Airbnb](https://www.airbnb.mx/rooms/1324968381846668643), administrado por el propietario del proyecto. Los archivos anteriores de menor resolución se conservan únicamente como respaldo histórico.
 

@@ -1,42 +1,36 @@
 # Reporte de QA — Villa Calypso
 
-Fecha de corte: 17 de julio de 2026.
+Fecha de corte: 18 de julio de 2026.
 
 ## Resultado
 
-La versión actual está preparada para publicarse en `https://villacalypso.mx/` y utiliza exclusivamente fotografías oficiales de Villa Calypso obtenidas del anuncio de Airbnb administrado por el propietario.
+La campaña **Vacaciones de verano 2026** está preparada para publicarse en `https://villacalypso.mx/`. La portada muestra de inmediato la oferta de renta vacacional, el beneficio `MCZ10` y la acción principal para cotizar por WhatsApp, sin una pantalla intermedia.
 
-La pantalla **Explorar** usa una fotografía fija de la alberca y el atardecer, con recortes independientes para escritorio y móvil. No existe ningún elemento `<video>`, referencia a `assets/cinema/`, galería externa de Acapulco ni dependencia visual de fuentes de edición.
+Todo prospecto de WhatsApp incluye campaña `VACACIONES-VERANO-2026`, referencia `MCZ-REFERIDO`, código `MCZ10`, folio `VC-AAAAMMDD-HHMMSS-01` y atribución UTM. Airbnb permanece como canal alternativo de disponibilidad y reservación.
 
 ## Matriz verificada
 
-- Escritorio: 1440 × 900 px; introducción fotográfica, portada, navegación y ausencia de desbordamiento horizontal.
-- Móvil: 390 × 844 px; recorte vertical de 900 × 1200, botón **Explorar**, portada móvil y ausencia de desbordamiento horizontal.
-- Introducción: imagen de escritorio 1920 × 1080 e imagen móvil 900 × 1200 seleccionadas correctamente por el navegador.
-- Galería: cuatro fotografías oficiales, contador `1 de 4`, navegación siguiente/anterior, cierre y retorno de foco.
-- Experiencia: cuatro momentos con cambio de imagen, texto, `aria-selected` y navegación por flechas, Inicio y Fin.
-- Conversión: enlaces de Airbnb y WhatsApp, parámetros UTM, referencia `MCZ-REFERIDO`, promoción `MCZ10` con 10% de descuento y folio por solicitud `VC-AAAAMMDD-HHMMSS-01`.
-- Formulario: validación de fechas y transferencia de fechas, huéspedes y servicios a los canales correspondientes; su lógica no fue modificada.
-- Accesibilidad: estructura semántica, textos alternativos, estados ARIA, foco visible y reducción de movimiento.
+- Conversión: WhatsApp es la acción principal en navegación, portada, formulario y botón flotante; Airbnb permanece disponible como alternativa.
+- Oferta: el beneficio web se muestra en la primera pantalla y de nuevo junto al formulario, con sus condiciones.
+- Formulario: valida llegada y salida y transfiere fechas, huéspedes, nombre, motivo, servicio opcional y mensaje al canal seleccionado.
+- Atribución: los enlaces de difusión conservan fuente, medio y campaña; cada conversación recibe además referencia y folio.
+- SEO: título y descripción se orientan a renta vacacional en Acapulco; canonical, Open Graph, Twitter Card, JSON-LD y sitemap apuntan al dominio oficial.
+- Accesibilidad: estructura semántica, textos alternativos, estados ARIA, foco visible y reducción de movimiento permanecen activos.
 
 ## Pruebas automatizadas
 
-- Sintaxis JavaScript validada con `node --check`.
-- Auditoría estática de archivos, SEO, rutas relativas, datos estructurados, imágenes responsivas y `prefers-reduced-motion` con `tools/qa-static.mjs`.
-- Auditoría HTTP local de todos los recursos del repositorio y respuesta 404 para una ruta inexistente.
-- Artefacto de GitHub Pages: **61 archivos de producción**; no publica videos, fuentes de edición, fotografías externas de Acapulco ni variantes históricas.
+- Sintaxis de `config.js` y `site.js` validada con Node.js.
+- Auditoría estática de archivos, SEO, rutas relativas, campaña, atribución, imágenes responsivas y movimiento reducido sin errores.
+- Auditoría HTTP local: **127 recursos** respondieron correctamente y una ruta inexistente devolvió 404.
+- Artefacto de producción: **55 archivos**, sin videos, fuentes de edición, imágenes históricas ni recortes de la introducción retirada.
 - `git diff --check` sin errores de espacios o conflictos de formato.
 
 ## Peso de entrega
 
-- Artefacto estimado de GitHub Pages: **7.36 MiB**.
-- Recursos históricos y de edición excluidos: **20.40 MiB**.
-- HTML principal: 29.3 KB.
-- CSS: 33.2 KB.
-- JavaScript total: 16.4 KB.
+- Artefacto de producción: **6.77 MiB**.
+- Paquete para Hostinger: **6.71 MiB**.
+- La versión pública sirve únicamente los recursos visuales utilizados por la experiencia actual.
 
-La eliminación del video redujo el artefacto público en más de 10 MiB respecto de la versión anterior del rediseño. El navegador descarga variantes AVIF/WebP según el ancho disponible, mientras las fuentes originales permanecen fuera de GitHub Pages.
+## Estado de publicación
 
-## Pendiente de publicación
-
-La rama local está lista. El envío a GitHub y la comprobación final del dominio dependen de renovar la autenticación de GitHub CLI para la cuenta `Marcoczmr94`.
+El contenido anterior está en línea mediante GitHub Pages. La campaña nueva queda pendiente de envío al repositorio y de la comprobación final del dominio. La verificación previa detectó que el dominio responde por HTTP, mientras el certificado HTTPS todavía no coincide con `villacalypso.mx`; este punto debe revisarse en la configuración del dominio de GitHub Pages después del despliegue.

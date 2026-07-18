@@ -4,6 +4,7 @@ window.SITE_CONFIG = Object.freeze({
   whatsappDisplay: "+52 744 229 7671",
   whatsappCatalogUrl: "https://wa.me/c/527442297671",
   referralCode: "MCZ-REFERIDO",
+  campaignCode: "VACACIONES-VERANO-2026",
   promotionCode: "MCZ10",
   promotionDiscount: "10%",
   canonicalUrl: "https://villacalypso.mx/",

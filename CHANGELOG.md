@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-18 — campaña Vacaciones de verano 2026
+
+- La portada abre directamente con la oferta de renta vacacional y elimina el paso intermedio **Explorar**.
+- WhatsApp es ahora la acción principal para cotizar y conserva Airbnb como canal alternativo de disponibilidad y reservación.
+- Se comunica `MCZ10` desde la primera pantalla y cada conversación incluye `VACACIONES-VERANO-2026`, `MCZ-REFERIDO`, folio y atribución UTM.
+- Se añadieron enlaces de difusión para WhatsApp, Instagram, Facebook y anuncios pagados.
+- Los recortes de la introducción anterior permanecen como material de edición, pero ya no se incluyen en el sitio publicado.
+
 ## 2026-07-17 — folios MCZ y beneficio web
 
 - Se sustituyó la referencia anterior por `MCZ-REFERIDO` para atribución comercial y control de comisiones.
