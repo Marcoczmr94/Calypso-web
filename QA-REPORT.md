@@ -33,4 +33,4 @@ Todo prospecto de WhatsApp incluye campaña `VACACIONES-VERANO-2026`, referencia
 
 ## Estado de publicación
 
-El contenido anterior está en línea mediante GitHub Pages. La campaña nueva queda pendiente de envío al repositorio y de la comprobación final del dominio. La verificación previa detectó que el dominio responde por HTTP, mientras el certificado HTTPS todavía no coincide con `villacalypso.mx`; este punto debe revisarse en la configuración del dominio de GitHub Pages después del despliegue.
+La campaña está publicada mediante GitHub Pages. El despliegue automático terminó correctamente, `https://villacalypso.mx/` responde con estado 200 y las visitas por HTTP redirigen de forma permanente a HTTPS. La portada pública contiene la campaña, la acción principal de WhatsApp y el código `MCZ10`.
