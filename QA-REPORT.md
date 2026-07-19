@@ -34,4 +34,4 @@ Todo prospecto de WhatsApp incluye campaña `VACACIONES-VERANO-2026`, referencia
 
 ## Estado de publicación
 
-La campaña anterior permanece publicada mediante GitHub Pages y protegida por HTTPS. El rediseño oficial está validado localmente y queda pendiente de sincronización y comprobación final en el dominio.
+El rediseño oficial está publicado mediante GitHub Pages y protegido por HTTPS. `https://villacalypso.mx/` responde con estado 200 y sirve correctamente ambos logotipos oficiales, la nueva sección de marca y la tarjeta social actualizada.
