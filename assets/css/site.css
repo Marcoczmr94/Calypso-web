@@ -1013,6 +1013,7 @@ h3 {
 
 .booking-section {
   background: var(--sand);
+  scroll-margin-top: 84px;
 }
 
 .booking-card {

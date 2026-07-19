@@ -59,6 +59,8 @@ Cada enlace de WhatsApp incluye:
 
 La fecha, hora y referencia MCZ permiten conciliar cada conversación. La secuencia es local porque GitHub Pages no tiene base de datos; un consecutivo global entre todos los dispositivos requerirá un servicio central. El sitio no procesa pagos, no simula disponibilidad y no confirma reservaciones.
 
+Las acciones **Cotizar estancia**, **Cotizar mis fechas**, **Completar cotizador** y el botón flotante llevan a `#estancia`. El mensaje de WhatsApp para una reservación sólo se genera después de validar el formulario; los enlaces de contacto general y concierge permanecen directos.
+
 ## Enlaces listos para difusión
 
 Usa un enlace distinto en cada canal para conservar el origen dentro del mensaje de WhatsApp:

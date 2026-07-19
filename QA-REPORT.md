@@ -11,7 +11,7 @@ Todo prospecto de WhatsApp incluye campaña `VACACIONES-VERANO-2026`, referencia
 ## Matriz verificada
 
 - Identidad: navegación, portada, sección editorial, iconos, tarjeta social, pie y página 404 utilizan la nueva paleta y los recursos oficiales.
-- Conversión: WhatsApp es la acción principal en navegación, portada, formulario y botón flotante; Airbnb permanece disponible como alternativa.
+- Conversión: navegación, portada y botón flotante llevan primero al cotizador; WhatsApp sólo se abre desde el envío validado del formulario. Airbnb permanece disponible como alternativa.
 - Oferta: el beneficio web se muestra en la primera pantalla y de nuevo junto al formulario, con sus condiciones.
 - Formulario: valida nombre, fechas o flexibilidad y capacidad máxima; calcula noches y transfiere composición del grupo, mascotas, motivo, varios servicios y comentarios a WhatsApp.
 - Atribución: los enlaces de difusión conservan fuente, medio y campaña; cada conversación recibe además referencia y folio.

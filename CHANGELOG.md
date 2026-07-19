@@ -6,6 +6,7 @@
 - Los servicios de chef, abastecimiento, transportación y bienestar pueden seleccionarse de forma independiente.
 - La interfaz calcula noches, controla la capacidad máxima de 15 huéspedes y muestra un resumen antes de continuar.
 - WhatsApp recibe una solicitud estructurada con todos los datos, además del folio, campaña, referencia, promoción y atribución digital existentes.
+- Todas las acciones de cotización llevan primero al formulario; sólo los contactos generales y concierge conservan acceso directo a WhatsApp.
 
 ## 2026-07-18 — rediseño con identidad oficial
 
