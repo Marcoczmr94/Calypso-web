@@ -13,7 +13,9 @@ const required = [
   "assets/css/site.css",
   "assets/js/config.js",
   "assets/js/site.js",
-  "assets/brand/logo-calypso-600.png"
+  "assets/brand/logo-official-flat.jpg",
+  "assets/brand/logo-official-textured.jpg",
+  "assets/brand/social-card-official.jpg"
 ];
 
 const failures = [];
@@ -38,6 +40,7 @@ const assertions = [
   [/rel=["']canonical["']/.test(html), "Existe canonical"],
   [/https:\/\/villacalypso\.mx\//.test(html) && /villacalypso\.mx/.test(config), "El dominio canónico es villacalypso.mx"],
   [/property=["']og:image["']/.test(html), "Existe imagen Open Graph"],
+  [/social-card-official\.jpg/.test(html), "La imagen social usa la identidad oficial"],
   [/application\/ld\+json/.test(html), "Existen datos estructurados"],
   [/MCZ-REFERIDO/.test(config) && !/MARCO-WEB-CALYPSO/.test(config), "El referido comercial MCZ está configurado"],
   [/campaignCode:\s*["']VACACIONES-VERANO-2026["']/.test(config) && /Campaña comercial/.test(siteJs), "La campaña de vacaciones acompaña cada prospecto"],
@@ -48,6 +51,8 @@ const assertions = [
   [!/id=["']siteIntro["']/.test(html) && /Cotizar mis fechas por WhatsApp/.test(html), "La portada abre directamente con la acción de cotizar"],
   [!/<video\b/.test(html) && !/assets\/cinema\//.test(html + css + siteJs), "El sitio no publica ni reproduce video"],
   [/Vacaciones de verano 2026/.test(html) && /hero-offer/.test(html + css), "La campaña vacacional es visible en la portada"],
+  [/logo-official-flat\.jpg/.test(html) && /logo-official-textured\.jpg/.test(html), "Los dos logotipos oficiales forman parte de la experiencia"],
+  [/#c96f61/i.test(css) && /#efa47d/i.test(css) && /#82a086/i.test(css) && /#f8f1e8/i.test(css), "La paleta coral, durazno, salvia y marfil está aplicada"],
   [/prefers-reduced-motion/.test(css), "Existe soporte para movimiento reducido"],
   [/srcset=/.test(html) && /type=["']image\/avif/.test(html), "La galería usa srcset y AVIF"],
   [/villa-pool-wide-1920\.webp["'] width=["']1920["'] height=["']2560["']/.test(html), "Las fotos de alta resolución declaran dimensiones"],

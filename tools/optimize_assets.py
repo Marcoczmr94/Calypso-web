@@ -84,32 +84,12 @@ def save_cover(
 
 
 def build_icons() -> None:
-    source = BRAND / "logo-calypso.png"
+    source = BRAND / "logo-official-flat.jpg"
     with Image.open(source) as logo:
-        logo = ImageOps.exif_transpose(logo).convert("RGBA")
-        for width in (600, 1200):
-            height = round(logo.height * width / logo.width)
-            compact = logo.resize((width, height), Image.Resampling.LANCZOS)
-            compact.save(BRAND / f"logo-calypso-{width}.png", optimize=True)
-
-        side = logo.height
-        mark = logo.crop((logo.width - side, 0, logo.width, side))
+        mark = ImageOps.exif_transpose(logo).convert("RGB")
         for size in (32, 192, 512):
             icon = mark.resize((size, size), Image.Resampling.LANCZOS)
             icon.save(BRAND / f"icon-{size}.png", optimize=True)
-
-
-def build_social_card() -> None:
-    source = SOURCES / "villa-pool-wide.jpg"
-    with Image.open(source) as image:
-        image = ImageOps.exif_transpose(image).convert("RGB")
-        card = ImageOps.fit(
-            image,
-            (1200, 630),
-            method=Image.Resampling.LANCZOS,
-            centering=(0.5, 0.5),
-        )
-        card.save(BRAND / "social-card.jpg", quality=88, optimize=True, progressive=True)
 
 
 def main() -> None:
@@ -152,7 +132,6 @@ def main() -> None:
         (0.5, 0.52),
     )
     build_icons()
-    build_social_card()
 
     for path in sorted((*OPTIMIZED.iterdir(), *BRAND.iterdir())):
         if path.is_file():

@@ -4,10 +4,12 @@ Todos los recursos esenciales se sirven desde el repositorio. No hay imágenes b
 
 ## Marca
 
-- `assets/brand/logo-calypso.png` — logotipo transparente original recibido.
-- `assets/brand/logo-calypso-600.png` y `logo-calypso-1200.png` — derivados optimizados para interfaz.
-- `assets/brand/icon-32.png`, `icon-192.png`, `icon-512.png` — iconos derivados del isotipo del logotipo.
-- `assets/brand/social-card.jpg` — encuadre social derivado de la fotografía principal de la villa.
+- `assets/brand/logo-official-flat.jpg` — logotipo oficial plano usado en navegación, portada y pie de página.
+- `assets/brand/logo-official-textured.jpg` — variante oficial texturizada usada como pieza editorial.
+- `assets/brand/icon-32.png`, `icon-192.png`, `icon-512.png` — iconos derivados del logotipo oficial.
+- `assets/brand/social-card-official.jpg` — tarjeta social de la nueva identidad, creada con el logotipo y una fotografía oficial de la propiedad.
+
+Los logotipos anteriores permanecen únicamente como respaldo histórico local y no forman parte del artefacto publicado.
 
 ## Recortes históricos de introducción
 

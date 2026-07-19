@@ -43,6 +43,8 @@ jobs:
           rm -f _site/assets/images/optimized/pool-*
           rm -f _site/assets/images/optimized/villa-table-local-*
           rm -f _site/assets/images/optimized/villa-intro-*
+          rm -f _site/assets/brand/logo-calypso*.png
+          rm -f _site/assets/brand/social-card.jpg
           cp index.html 404.html robots.txt sitemap.xml site.webmanifest CNAME .nojekyll _site/
 
       - name: Empaquetar sitio

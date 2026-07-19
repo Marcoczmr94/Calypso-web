@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-18 — rediseño con identidad oficial
+
+- Se incorporaron el logotipo oficial plano y su variante texturizada sin alterar sus colores ni composición.
+- La dirección visual cambió a una estética Riviera mexicana contemporánea con marfil, coral, durazno y verde salvia.
+- La portada adoptó una composición editorial dividida, fotografía en arco, sello oficial y jerarquía de conversión más clara.
+- Galería, experiencia, servicios, concierge, formulario, navegación, pie y página 404 comparten ahora el mismo sistema visual.
+- Se actualizaron iconos, manifest y tarjeta social para representar la identidad oficial al compartir el sitio.
+
 ## 2026-07-18 — campaña Vacaciones de verano 2026
 
 - La portada abre directamente con la oferta de renta vacacional y elimina el paso intermedio **Explorar**.

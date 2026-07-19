@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#061b19">
-  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#355f50">
+  <meta name="color-scheme" content="light">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="description" content="Renta Villa Calypso completa frente al mar en Acapulco para hasta 15 huéspedes. Cotiza tus vacaciones por WhatsApp o consulta disponibilidad en Airbnb.">
   <title>Renta vacacional en Acapulco | Villa Calypso</title>
@@ -13,6 +13,7 @@
   <link rel="manifest" href="./site.webmanifest">
   <link rel="icon" href="./assets/brand/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/brand/icon-192.png">
+  <link rel="preload" href="./assets/brand/logo-official-flat.jpg" as="image" type="image/jpeg">
   <link rel="preload" href="./assets/images/optimized/villa-hero-desktop-1920.avif" as="image" type="image/avif" media="(min-width: 681px)" fetchpriority="high">
   <link rel="preload" href="./assets/images/optimized/villa-hero-mobile-900.avif" as="image" type="image/avif" media="(max-width: 680px)" fetchpriority="high">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -23,14 +24,14 @@
   <meta property="og:title" content="Vacaciones frente al Pacífico | Villa Calypso Acapulco">
   <meta property="og:description" content="Renta la villa completa para hasta 15 huéspedes. Seis habitaciones, alberca infinita y atención directa del Superanfitrión.">
   <meta property="og:url" content="https://villacalypso.mx/">
-  <meta property="og:image" content="https://villacalypso.mx/assets/brand/social-card.jpg">
+  <meta property="og:image" content="https://villacalypso.mx/assets/brand/social-card-official.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Alberca y vista al Pacífico en Villa Calypso, Acapulco">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vacaciones en Villa Calypso Acapulco">
   <meta name="twitter:description" content="Renta la villa completa frente al mar para hasta 15 huéspedes.">
-  <meta name="twitter:image" content="https://villacalypso.mx/assets/brand/social-card.jpg">
+  <meta name="twitter:image" content="https://villacalypso.mx/assets/brand/social-card-official.jpg">
 
   <script type="application/ld+json">
   {
@@ -69,7 +70,8 @@
 
   <header class="site-header" id="siteHeader">
     <a class="brand" href="#inicio" aria-label="Villa Calypso, volver al inicio">
-      <img src="./assets/brand/logo-calypso-600.png" width="600" height="127" alt="Villa Calypso">
+      <span class="brand__seal"><img src="./assets/brand/logo-official-flat.jpg" width="1024" height="1024" alt=""></span>
+      <span class="brand__wordmark">Villa Calypso<small>Acapulco · México</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Navegación principal">
       <a href="#villa">La villa</a>
@@ -87,7 +89,7 @@
     <button class="menu-backdrop" type="button" tabindex="-1" aria-label="Cerrar menú"></button>
     <aside class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
       <div class="mobile-menu__head">
-        <img src="./assets/brand/logo-calypso-600.png" width="600" height="127" alt="Villa Calypso">
+        <div class="mobile-menu__brand"><img src="./assets/brand/logo-official-flat.jpg" width="1024" height="1024" alt="Villa Calypso"><span>Villa Calypso<small>Acapulco · México</small></span></div>
         <button class="icon-button" id="menuClose" type="button" aria-label="Cerrar menú">×</button>
       </div>
       <p class="mobile-menu__label" id="mobileMenuTitle">Explorar Villa Calypso</p>
@@ -115,6 +117,7 @@
       <div class="hero__shade"></div>
       <div class="hero__content">
         <div class="hero__copy">
+          <img class="hero__brand-seal" src="./assets/brand/logo-official-flat.jpg" width="1024" height="1024" alt="Emblema oficial de Villa Calypso">
           <p class="eyebrow">Vacaciones de verano 2026 · Acapulco</p>
           <h1 id="heroTitle" tabindex="-1">Reúne a todos. <em>El Pacífico enfrente.</em></h1>
           <p class="hero__lead">Renta Villa Calypso completa para hasta 15 huéspedes: seis habitaciones, alberca infinita y atención directa para organizar unas vacaciones sin dividir al grupo.</p>
@@ -151,6 +154,20 @@
         <div><strong>25</strong><span>evaluaciones</span></div>
         <div><strong>Top 5%</strong><span>mejor calificados</span></div>
         <div><strong>47</strong><span>amenidades</span></div>
+      </div>
+    </section>
+
+    <section class="brand-story" aria-labelledby="brandStoryTitle">
+      <div class="container brand-story__inner">
+        <figure class="brand-story__mark reveal">
+          <img src="./assets/brand/logo-official-textured.jpg" width="1024" height="1024" alt="Emblema texturizado oficial de Villa Calypso" loading="lazy">
+        </figure>
+        <div class="brand-story__copy">
+          <p class="eyebrow reveal">El espíritu Calypso</p>
+          <h2 id="brandStoryTitle" class="reveal">Una casa con alma de costa.</h2>
+          <p class="reveal">Coral de atardecer, sol cálido y verde tropical. Villa Calypso reúne la energía de Acapulco en una residencia privada creada para compartir con calma.</p>
+          <a class="text-link reveal" href="#villa">Conoce cada espacio <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -362,7 +379,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="./assets/brand/logo-calypso-600.png" width="600" height="127" alt="Villa Calypso">
+        <img src="./assets/brand/logo-official-flat.jpg" width="1024" height="1024" alt="Villa Calypso">
         <p>Residencia privada frente al Pacífico en Acapulco, Guerrero.</p>
       </div>
       <div>

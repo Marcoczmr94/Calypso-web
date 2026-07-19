@@ -5,6 +5,8 @@ Sitio estático de Villa Calypso, una residencia privada frente al mar en Acapul
 - Disponibilidad y reservación en [Airbnb](https://www.airbnb.mx/rooms/1324968381846668643).
 - Atención personalizada y concierge por WhatsApp Business al **+52 744 229 7671**.
 
+La identidad visual oficial utiliza marfil, coral, durazno y verde salvia. El logotipo plano aparece en navegación y cierre; la variante texturizada funciona como pieza editorial dentro de la experiencia.
+
 No requiere framework, base de datos ni proceso de compilación. Funciona en GitHub Pages, un servidor HTTP local y la raíz de `public_html/` en Hostinger.
 
 ## Vista local
