@@ -303,10 +303,10 @@
         <div class="booking-card__intro">
           <p class="eyebrow reveal">Vacaciones de verano 2026</p>
           <h2 id="bookingTitle" class="reveal">Cotiza tus fechas.</h2>
-          <p class="section-intro reveal">Envía tu solicitud por WhatsApp para recibir atención directa o consulta el calendario y la reservación dentro de Airbnb.</p>
+          <p class="section-intro reveal">Completa una sola vez los datos de tu grupo. WhatsApp abrirá con la solicitud ordenada para confirmar disponibilidad y preparar tu cotización.</p>
           <div class="channel-note reveal">
-            <strong>Tu solicitud queda identificada.</strong>
-            <span>WhatsApp agrega la campaña, la referencia MCZ, tus fechas y un folio de seguimiento.</span>
+            <strong>Menos preguntas, respuesta más rápida.</strong>
+            <span>Recibimos fechas, composición del grupo, motivo del viaje, servicios y un folio de seguimiento.</span>
           </div>
           <div class="web-benefit reveal" aria-label="Beneficio exclusivo de reservación directa">
             <span class="web-benefit__label">Beneficio web</span>
@@ -315,46 +315,86 @@
           </div>
         </div>
         <form class="booking-form" id="bookingForm" novalidate>
-          <div class="field">
-            <label for="checkin">Llegada</label>
-            <input id="checkin" name="checkin" type="date" required>
+          <div class="quote-heading field--full">
+            <span>Solicitud de cotización</span>
+            <h3>Datos de tu estancia</h3>
+            <p>Los campos marcados con * nos ayudan a cotizar sin demora.</p>
+          </div>
+          <div class="field field--full">
+            <label for="guestName">Nombre completo *</label>
+            <input id="guestName" name="guestName" type="text" autocomplete="name" maxlength="80" placeholder="¿A nombre de quién cotizamos?" required>
           </div>
           <div class="field">
-            <label for="checkout">Salida</label>
-            <input id="checkout" name="checkout" type="date" required>
+            <label for="checkin">Llegada *</label>
+            <input id="checkin" name="checkin" type="date">
           </div>
           <div class="field">
-            <label for="guests">Huéspedes</label>
-            <select id="guests" name="guests">
-              <option value="2">2 huéspedes</option><option value="4">4 huéspedes</option><option value="6">6 huéspedes</option><option value="8">8 huéspedes</option><option value="10">10 huéspedes</option><option value="12">12 huéspedes</option><option value="15" selected>15 huéspedes</option>
+            <label for="checkout">Salida *</label>
+            <input id="checkout" name="checkout" type="date">
+          </div>
+          <label class="inline-check field--full" for="flexibleDates">
+            <input id="flexibleDates" name="flexibleDates" type="checkbox">
+            <span>Mis fechas son flexibles o todavía no están definidas</span>
+          </label>
+          <fieldset class="quote-group field--full">
+            <legend>¿Quiénes viajan? <span>* máximo 15 huéspedes</span></legend>
+            <div class="guest-fields">
+              <div class="field">
+                <label for="adults">Adultos</label>
+                <select id="adults" name="adults">
+                  <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="children">Menores</label>
+                <select id="children" name="children">
+                  <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="infants">Bebés</label>
+                <select id="infants" name="infants">
+                  <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+              </div>
+            </div>
+            <p class="guest-total" id="guestTotal" aria-live="polite">2 huéspedes · capacidad disponible para 13 más</p>
+          </fieldset>
+          <div class="field">
+            <label for="pets">Mascotas</label>
+            <select id="pets" name="pets">
+              <option value="No" selected>No</option><option value="Sí, 1 mascota">Sí, 1 mascota</option><option value="Sí, 2 mascotas">Sí, 2 mascotas</option><option value="Sí, 3 o más mascotas">Sí, 3 o más</option>
             </select>
           </div>
           <div class="field">
-            <label for="guestName">Nombre</label>
-            <input id="guestName" name="guestName" type="text" autocomplete="name" maxlength="80" placeholder="¿Cómo te llamas?">
-          </div>
-          <div class="field">
-            <label for="occasion">Tipo de estancia</label>
+            <label for="occasion">Motivo del viaje</label>
             <select id="occasion" name="occasion">
               <option>Vacaciones</option><option>Reunión familiar</option><option>Celebración</option><option>Retiro privado</option><option>Otro</option>
             </select>
           </div>
-          <div class="field">
-            <label for="optionalService">Servicio opcional</label>
-            <select id="optionalService" name="optionalService">
-              <option value="Ninguno">Ninguno por ahora</option><option>Chef</option><option>Abastecimiento</option><option>Transportación</option><option>Bienestar</option><option>Otro</option>
-            </select>
-          </div>
+          <fieldset class="quote-group field--full">
+            <legend>Servicios que deseas cotizar <span>opcional</span></legend>
+            <div class="service-options">
+              <label class="check-option"><input type="checkbox" name="services" value="Chef privado"><span><strong>Chef privado</strong><small>Servicio de alimentos bajo solicitud.</small></span></label>
+              <label class="check-option"><input type="checkbox" name="services" value="Abastecimiento previo"><span><strong>Abastecimiento</strong><small>Compras coordinadas antes de tu llegada.</small></span></label>
+              <label class="check-option"><input type="checkbox" name="services" value="Transportación"><span><strong>Transportación</strong><small>Traslados sujetos a disponibilidad.</small></span></label>
+              <label class="check-option"><input type="checkbox" name="services" value="Masajes o bienestar"><span><strong>Bienestar</strong><small>Masajes y experiencias privadas.</small></span></label>
+            </div>
+          </fieldset>
           <div class="field field--full">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="3" maxlength="500" placeholder="Cuéntanos lo esencial de tu estancia"></textarea>
+            <label for="message">Comentarios o petición especial</label>
+            <textarea id="message" name="message" rows="3" maxlength="500" placeholder="Ej. celebramos un cumpleaños, requerimos apoyo de accesibilidad…"></textarea>
+          </div>
+          <div class="quote-summary field--full" id="quoteSummary" aria-live="polite">
+            <span>Resumen para WhatsApp</span>
+            <strong>2 huéspedes · fechas por elegir · solo hospedaje</strong>
           </div>
           <p class="form-status field--full" id="formStatus" role="alert" aria-live="polite"></p>
           <div class="booking-actions field--full">
-            <button class="button button--gold" type="button" id="bookingWhatsApp">Cotizar por WhatsApp</button>
+            <button class="button button--gold" type="submit" id="bookingWhatsApp">Enviar solicitud a WhatsApp</button>
             <button class="button button--dark-outline" type="button" id="bookingAirbnb">Consultar en Airbnb <span aria-hidden="true">↗</span></button>
           </div>
-          <p class="form-note field--full">No se procesa ningún pago aquí. La reservación sólo se confirma dentro de Airbnb o por el canal que indique el anfitrión.</p>
+          <p class="form-note field--full">Al continuar se abrirá WhatsApp con estos datos. Revisa el mensaje y toca “Enviar” para que podamos recibirlo. No se procesa ningún pago aquí.</p>
         </form>
       </div>
     </section>

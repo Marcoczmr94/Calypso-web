@@ -1106,6 +1106,33 @@ h3 {
   gap: 14px;
 }
 
+.quote-heading {
+  padding-bottom: 4px;
+}
+
+.quote-heading > span,
+.quote-summary > span {
+  display: block;
+  color: var(--coral-dark, #a95146);
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.quote-heading h3 {
+  margin: 7px 0 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 400;
+}
+
+.quote-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -1114,6 +1141,113 @@ h3 {
 
 .field--full {
   grid-column: 1 / -1;
+}
+
+.inline-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -2px;
+  color: #596a66;
+  cursor: pointer;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.inline-check input,
+.check-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--coral, #c96f61);
+  flex: 0 0 auto;
+}
+
+.quote-group {
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 16px;
+  border: 1px solid rgba(92, 68, 60, 0.16);
+  border-radius: 17px;
+}
+
+.quote-group legend {
+  padding: 0 8px;
+  color: #596a66;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quote-group legend span {
+  color: var(--muted);
+  font-size: 0.84em;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.guest-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.guest-total {
+  margin: 11px 0 0;
+  color: var(--sage-dark, #355f50);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.guest-total.is-over-limit {
+  color: #8f2f28;
+}
+
+.service-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.check-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 70px;
+  padding: 12px;
+  border: 1px solid rgba(92, 68, 60, 0.13);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.44);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.check-option:has(input:checked) {
+  border-color: var(--coral, #c96f61);
+  background: rgba(239, 164, 125, 0.13);
+}
+
+.check-option input {
+  margin-top: 2px;
+}
+
+.check-option strong,
+.check-option small {
+  display: block;
+}
+
+.check-option strong {
+  color: var(--ink);
+  font-size: 0.76rem;
+}
+
+.check-option small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.35;
 }
 
 .field label {
@@ -1163,6 +1297,25 @@ h3 {
 .field [aria-invalid="true"] {
   border-color: #a4372e;
   background: #fff8f7;
+}
+
+.quote-summary {
+  padding: 14px 16px;
+  border-left: 3px solid var(--sage, #82a086);
+  border-radius: 0 13px 13px 0;
+  background: rgba(130, 160, 134, 0.1);
+}
+
+.quote-summary > span {
+  color: var(--sage-dark, #355f50);
+}
+
+.quote-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  line-height: 1.5;
 }
 
 .form-status {
@@ -1593,6 +1746,8 @@ h3 {
   .concierge-list,
   .booking-form,
   .social-links { grid-template-columns: 1fr; }
+  .guest-fields,
+  .service-options { grid-template-columns: 1fr; }
   .service-card { min-height: 205px; }
   .booking-card { width: calc(100% - 24px); padding: 28px 18px; border-radius: 24px; }
   .field--full { grid-column: auto; }

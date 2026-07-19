@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-18 — cotizador filtrado para WhatsApp
+
+- El formulario ahora solicita nombre, fechas o flexibilidad, adultos, menores, bebés, mascotas y motivo del viaje.
+- Los servicios de chef, abastecimiento, transportación y bienestar pueden seleccionarse de forma independiente.
+- La interfaz calcula noches, controla la capacidad máxima de 15 huéspedes y muestra un resumen antes de continuar.
+- WhatsApp recibe una solicitud estructurada con todos los datos, además del folio, campaña, referencia, promoción y atribución digital existentes.
+
 ## 2026-07-18 — rediseño con identidad oficial
 
 - Se incorporaron el logotipo oficial plano y su variante texturizada sin alterar sus colores ni composición.

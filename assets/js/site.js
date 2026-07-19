@@ -334,71 +334,185 @@
 
   const checkin = $("#checkin");
   const checkout = $("#checkout");
+  const flexibleDates = $("#flexibleDates");
+  const guestName = $("#guestName");
+  const adults = $("#adults");
+  const children = $("#children");
+  const infants = $("#infants");
   const formStatus = $("#formStatus");
   const tomorrow = addDays(new Date(), 1);
   const dayAfterTomorrow = addDays(new Date(), 2);
+
+  const pluralize = (amount, singular, plural = `${singular}s`) => `${amount} ${amount === 1 ? singular : plural}`;
+
+  const formatDate = (value) => {
+    if (!value) return "por definir";
+    return new Intl.DateTimeFormat("es-MX", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(new Date(`${value}T12:00:00`));
+  };
+
+  const calculateNights = () => {
+    if (!checkin?.value || !checkout?.value || checkout.value <= checkin.value) return 0;
+    const start = new Date(`${checkin.value}T12:00:00`);
+    const end = new Date(`${checkout.value}T12:00:00`);
+    return Math.round((end - start) / 86400000);
+  };
+
+  const selectedServices = () => $$('#bookingForm input[name="services"]:checked')
+    .map((input) => input.value);
+
+  const getGuestCount = () => ({
+    adults: Number.parseInt(adults?.value || "0", 10),
+    children: Number.parseInt(children?.value || "0", 10),
+    infants: Number.parseInt(infants?.value || "0", 10)
+  });
+
+  const updateQuoteSummary = () => {
+    const counts = getGuestCount();
+    const occupancy = counts.adults + counts.children + counts.infants;
+    const remaining = Math.max(0, 15 - occupancy);
+    const guestTotal = $("#guestTotal");
+    const summary = $("#quoteSummary strong");
+    const services = selectedServices();
+    const nights = calculateNights();
+
+    if (guestTotal) {
+      guestTotal.textContent = occupancy > 15
+        ? `${occupancy} huéspedes · excede la capacidad por ${occupancy - 15}`
+        : `${pluralize(occupancy, "huésped", "huéspedes")} · ${remaining ? `capacidad disponible para ${remaining} más` : "capacidad completa"}`;
+      guestTotal.classList.toggle("is-over-limit", occupancy > 15);
+    }
+
+    if (summary) {
+      const dates = nights
+        ? `${pluralize(nights, "noche")} · ${formatDate(checkin.value)} a ${formatDate(checkout.value)}`
+        : (flexibleDates?.checked ? "fechas flexibles" : "fechas por elegir");
+      summary.textContent = `${pluralize(occupancy, "huésped", "huéspedes")} (${counts.adults} adultos, ${counts.children} menores, ${counts.infants} bebés) · ${dates} · ${services.length ? services.join(", ") : "solo hospedaje"}`;
+    }
+  };
 
   if (checkin && checkout) {
     checkin.min = toLocalDate(tomorrow);
     checkout.min = toLocalDate(dayAfterTomorrow);
     checkin.addEventListener("change", () => {
       checkin.removeAttribute("aria-invalid");
-      if (!checkin.value) return;
+      if (!checkin.value) {
+        updateQuoteSummary();
+        return;
+      }
       const earliestCheckout = addDays(new Date(`${checkin.value}T12:00:00`), 1);
       checkout.min = toLocalDate(earliestCheckout);
       if (checkout.value && checkout.value <= checkin.value) checkout.value = "";
+      updateQuoteSummary();
     });
-    checkout.addEventListener("change", () => checkout.removeAttribute("aria-invalid"));
+    checkout.addEventListener("change", () => {
+      checkout.removeAttribute("aria-invalid");
+      updateQuoteSummary();
+    });
   }
 
-  const validateDates = () => {
+  const validateQuote = ({ requireName = true } = {}) => {
     if (!checkin || !checkout || !formStatus) return true;
     checkin.removeAttribute("aria-invalid");
     checkout.removeAttribute("aria-invalid");
+    guestName?.removeAttribute("aria-invalid");
+    adults?.removeAttribute("aria-invalid");
+    children?.removeAttribute("aria-invalid");
+    infants?.removeAttribute("aria-invalid");
     formStatus.textContent = "";
 
-    if (!checkin.value && !checkout.value) return true;
-    if (!checkin.value || !checkout.value) {
-      const missing = checkin.value ? checkout : checkin;
-      missing.setAttribute("aria-invalid", "true");
-      formStatus.textContent = "Selecciona tanto la fecha de llegada como la de salida, o deja ambas por definir.";
-      missing.focus();
+    if (requireName && (!guestName?.value.trim() || guestName.value.trim().length < 2)) {
+      guestName?.setAttribute("aria-invalid", "true");
+      formStatus.textContent = "Escribe tu nombre para identificar la cotización.";
+      guestName?.focus();
       return false;
     }
-    if (checkout.value <= checkin.value) {
+
+    if (!checkin.value && !checkout.value && !flexibleDates?.checked) {
+      checkin.setAttribute("aria-invalid", "true");
+      checkout.setAttribute("aria-invalid", "true");
+      formStatus.textContent = "Selecciona llegada y salida, o marca que tus fechas son flexibles.";
+      checkin.focus();
+      return false;
+    } else if (!checkin.value || !checkout.value) {
+      if (checkin.value || checkout.value || !flexibleDates?.checked) {
+        const missing = checkin.value ? checkout : checkin;
+        missing.setAttribute("aria-invalid", "true");
+        formStatus.textContent = "Selecciona tanto la fecha de llegada como la de salida, o deja ambas vacías si son flexibles.";
+        missing.focus();
+        return false;
+      }
+    } else if (checkout.value <= checkin.value) {
       checkout.setAttribute("aria-invalid", "true");
       formStatus.textContent = "La fecha de salida debe ser posterior a la fecha de llegada.";
       checkout.focus();
       return false;
     }
+
+    const counts = getGuestCount();
+    if (counts.adults + counts.children + counts.infants > 15) {
+      adults?.setAttribute("aria-invalid", "true");
+      children?.setAttribute("aria-invalid", "true");
+      infants?.setAttribute("aria-invalid", "true");
+      formStatus.textContent = "Villa Calypso recibe un máximo de 15 huéspedes. Ajusta adultos, menores o bebés.";
+      adults?.focus();
+      return false;
+    }
     return true;
   };
 
-  const getFormData = () => ({
-    checkin: checkin?.value || "por definir",
-    checkout: checkout?.value || "por definir",
-    guests: $("#guests")?.value || "por definir",
-    name: $("#guestName")?.value.trim() || "por definir",
-    occasion: $("#occasion")?.value || "por definir",
-    service: $("#optionalService")?.value || "Ninguno",
-    message: $("#message")?.value.trim() || "Sin mensaje adicional"
-  });
+  const getFormData = () => {
+    const counts = getGuestCount();
+    return {
+      checkin: checkin?.value || "",
+      checkout: checkout?.value || "",
+      dates: checkin?.value && checkout?.value
+        ? `${formatDate(checkin.value)} al ${formatDate(checkout.value)}`
+        : "Flexibles / por definir",
+      nights: calculateNights(),
+      guests: counts.adults + counts.children + counts.infants,
+      adults: counts.adults,
+      children: counts.children,
+      infants: counts.infants,
+      name: guestName?.value.trim() || "por definir",
+      occasion: $("#occasion")?.value || "por definir",
+      pets: $("#pets")?.value || "No",
+      services: selectedServices(),
+      message: $("#message")?.value.trim() || "Sin comentarios adicionales"
+    };
+  };
+
+  [adults, children, infants, flexibleDates, $("#pets"), $("#occasion"), ...$$('#bookingForm input[name="services"]')]
+    .filter(Boolean)
+    .forEach((control) => control.addEventListener("change", updateQuoteSummary));
+
+  guestName?.addEventListener("input", () => guestName.removeAttribute("aria-invalid"));
+  updateQuoteSummary();
 
   $("#bookingAirbnb")?.addEventListener("click", () => {
-    if (!validateDates()) return;
+    if (!validateQuote({ requireName: false })) return;
     const data = getFormData();
     openExternal(airbnbUrl({
-      checkin: data.checkin === "por definir" ? "" : data.checkin,
-      checkout: data.checkout === "por definir" ? "" : data.checkout,
+      checkin: data.checkin,
+      checkout: data.checkout,
       guests: data.guests
     }), "Abriendo el anuncio oficial en Airbnb…");
   });
 
-  $("#bookingWhatsApp")?.addEventListener("click", () => {
-    if (!validateDates()) return;
+  $("#bookingForm")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!validateQuote()) return;
     const data = getFormData();
-    const details = `Nombre: ${data.name}\nLlegada: ${data.checkin}\nSalida: ${data.checkout}\nHuéspedes: ${data.guests}\nTipo de estancia: ${data.occasion}\nServicio opcional: ${data.service}\nMensaje: ${data.message}`;
-    openExternal(whatsappUrl("solicitar una estancia personalizada", details), "Abriendo WhatsApp con tu solicitud…");
+    const group = [
+      pluralize(data.adults, "adulto"),
+      pluralize(data.children, "menor", "menores"),
+      pluralize(data.infants, "bebé", "bebés")
+    ].join(", ");
+    const details = `*SOLICITUD DE COTIZACIÓN · VILLA CALYPSO*\n\nNombre: ${data.name}\nFechas: ${data.dates}${data.nights ? ` (${pluralize(data.nights, "noche")})` : ""}\nGrupo: ${group}\nOcupación total: ${pluralize(data.guests, "huésped", "huéspedes")}\nMascotas: ${data.pets}\nMotivo del viaje: ${data.occasion}\nServicios a cotizar: ${data.services.length ? data.services.join(", ") : "Solo hospedaje"}\nComentarios: ${data.message}\n\nPropiedad solicitada: Villa completa · 6 habitaciones · capacidad máxima de 15 huéspedes`;
+    openExternal(whatsappUrl("recibir una cotización de estancia", details), "Abriendo WhatsApp con tu solicitud filtrada…");
   });
 
   const year = $("#currentYear");

@@ -55,7 +55,7 @@ Cada enlace de WhatsApp incluye:
 - Código promocional `MCZ10` con 10% de descuento sobre la tarifa de hospedaje en reservaciones directas confirmadas por el anfitrión.
 - Un folio nuevo en cada apertura de WhatsApp con formato `VC-AAAAMMDD-HHMMSS-01`; la secuencia diaria `01`, `02`, etc. se conserva por navegador.
 - Parámetros UTM capturados en la primera visita y conservados localmente.
-- Datos del formulario cuando el visitante solicita una estancia personalizada.
+- Datos filtrados de la solicitud: nombre, fechas o flexibilidad, noches, composición del grupo, mascotas, motivo del viaje, servicios opcionales y comentarios.
 
 La fecha, hora y referencia MCZ permiten conciliar cada conversación. La secuencia es local porque GitHub Pages no tiene base de datos; un consecutivo global entre todos los dispositivos requerirá un servicio central. El sitio no procesa pagos, no simula disponibilidad y no confirma reservaciones.
 
